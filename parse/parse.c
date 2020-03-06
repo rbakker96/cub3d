@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse.c                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2020/02/26 10:56:57 by rbakker        #+#    #+#                */
-/*   Updated: 2020/02/28 17:34:38 by rbakker       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/26 10:56:57 by rbakker           #+#    #+#             */
+/*   Updated: 2020/03/06 17:59:29 by rbakker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#define MAP data->map
 
 void		validate_map(t_data *data, int x, int y)
 {
@@ -75,38 +74,55 @@ void		update_map(char *line, t_data *data, int x)
 	data->map = ft_split(updated_map, '\n');
 }
 
-void		parse_lines(t_data *data, char *file_name)
+void		map_input(t_data *data, int fd)
 {
-	int		fd;
 	int		res;
 	char	*line;
 
 	res = 1;
-	fd = open(file_name, O_RDONLY);
 	while (res > 0)
 	{
 		res = get_next_line(fd, &line);
 		if (res < 0)
 			free_machine(line, 0);
-		else if (general_input_line(line))
-			parse_general_input(line, data);
-		else if (map_line(line))
-			(data->map_input) ? update_map(line, data, 0) :
-								create_map(line, data);
-		else if (!empty_line(line))
+		if (res == 0)
+			free(line);
+		if (empty_line(line) || !map_line(line))
+			break ;
+		update_map(line, data, 0);
+	}
+	validate_map(data, 0, 0);
+}
+
+void		general_input(t_data *data, int fd)
+{
+	int		res;
+	char	*line;
+
+	res = 1;
+	while (res > 0)
+	{
+		res = get_next_line(fd, &line);
+		if (res < 0)
 			free_machine(line, 0);
 		if (res == 0)
-		{
 			free(line);
-			validate_map(data, 0, 0);
-			return ;
-		}
+		if (!empty_line(line) && !general_input_line(line))
+			break ;
+		if (general_input_line(line))
+			parse_general_input(line, data);
 	}
+	if (map_line(line))
+		create_map(line, data);
+	free(line);
+	validate_general_input(data);
 }
 
 void		parse_file(int argv, char **argc, t_data *data)
 {
-	validation_reset(data);
+	int		fd;
+
+	reset_input_struct(data);
 	if (argv != 2 && argv != 3)
 		parse_error(1, 0, 0);
 //	if (argv == 3)
@@ -117,5 +133,7 @@ void		parse_file(int argv, char **argc, t_data *data)
 //	}
 	if (check_file_name(argc[1]) == error)
 		parse_error(2, 0, 0);
-	parse_lines(data, argc[1]);
+	fd = open(argc[1], O_RDONLY);
+	general_input(data, fd);
+	map_input(data, fd);
 }

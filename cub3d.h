@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   cub3d.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2020/02/26 10:44:33 by rbakker        #+#    #+#                */
-/*   Updated: 2020/02/28 17:34:33 by rbakker       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/26 10:44:33 by rbakker           #+#    #+#             */
+/*   Updated: 2020/03/06 17:55:52 by rbakker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,96 +20,10 @@
 # include "libft/libft.h"
 # include "list/list.h"
 # include "gnl/get_next_line.h"
+# include "structs.h"
+# include "defenitions.h"
 
 # include <stdio.h>  /*remove*/
-
-/*
-**-------------------------------DEFENITIONS------------------------------------
-*/
-
-typedef enum		e_defenitions
-{
-	error = -1,
-	correct = 1,
-	present = 2,
-	left = 3,
-	right = 4
-}					t_defenitions;
-
-/*
-**---------------------------------GENERAL--------------------------------------
-*/
-
-typedef struct		s_color
-{
-	int				r;
-	int				g;
-	int				b;
-	int				validation;
-}					t_color;
-
-typedef struct		s_3d_value
-{
-	double			x;
-	double			y;
-	double			z;
-}					t_3d_value;
-
-typedef struct		s_ray
-{
-	t_3d_value		origin;
-	t_3d_value		direction;
-}					t_ray;
-
-/*
-**----------------------------------SCENE---------------------------------------
-*/
-
-typedef struct		s_resolution
-{
-	int				x;
-	int				y;
-	int				validation;
-}					t_resolution;
-
-typedef struct		s_texture
-{
-	char			*path;
-	int				validation;
-}					t_texture;
-
-/*
-**----------------------------------DATA----------------------------------------
-*/
-
-typedef struct		s_data
-{
-	t_resolution	resolution;
-	t_color			floor_color;
-	t_color			ceilling_color;
-	t_texture		north_texture;
-	t_texture		south_texture;
-	t_texture		west_texture;
-	t_texture		east_texture;
-	t_texture		sprite_texture;
-	char			**map;
-	char			*map_input;
-}					t_data;
-
-/*
-**----------------------------------DATA----------------------------------------
-*/
-
-typedef struct		s_mlx_data
-{
-	void			*mlx;
-	void			*mlx_win;
-	void			*img;
-	char			*addr;
-	int				bits_per_pixel;
-	int				line_length;
-	int				endian;
-}					t_mlx_data;
 
 /*
 **----------------------------------UTILS---------------------------------------
@@ -140,10 +54,10 @@ void			check_bottom_line(t_data *data, int x, int y);
 void			check_start_position_and_spawning(t_data *data);
 void			free_array(char **array);
 void			free_machine(char *string, char **array);
-void			validation_reset(t_data *data);
+void			reset_input_struct(t_data *data);
 
 /*
-**----------------------------------PARSE---------------------------------------
+**-----------------------------PARSE FOLDER-------------------------------------
 */
 
 void			parse_file(int argv, char **argc, t_data *data);
@@ -151,6 +65,7 @@ void			parse_lines(t_data *data, char *file_name);
 void			update_map(char *line, t_data *data, int x);
 void			create_map(char *line, t_data *data);
 void			validate_map(t_data *data, int x, int y);
+void			validate_general_input(t_data *data);
 
 void			parse_general_input(char *line, t_data *data);
 void			parse_resolution(t_data *data, char **input_data);
@@ -162,5 +77,39 @@ void			parse_south(t_data *data, char **input_data);
 void			parse_east(t_data *data, char **input_data);
 void			parse_west(t_data *data, char **input_data);
 void			parse_sprite(t_data *data, char **input_data);
+
+/*
+**-----------------------------RENDER FOLDER------------------------------------
+*/
+
+void			initialize_camera_x(t_data *data, t_raycasting *raycasting,
+									int i);
+
+void			view_direction(t_data *data, t_raycasting *raycasting);
+void			ray_direction(t_raycasting *raycasting);
+void			step_size(t_raycasting *raycasting);
+
+void			delta_distance(t_raycasting *raycasting);
+void			side_distance(t_raycasting *raycasting);
+
+void			initialize_plane(t_raycasting *raycasting);
+
+void			start_and_current_position(t_data *data,
+											t_raycasting *raycasting);
+
+void			identify_wall(t_data *data, t_raycasting *raycasting);
+void			prep_wall_distance(t_raycasting *raycasting);
+void			draw_wall(t_data *data, t_raycasting *raycasting,
+							t_mlx_data *mlx_data, int i);
+
+void			calculate_variables(t_data *data, t_raycasting *raycasting,
+									int i);
+void			render(t_data *data, t_raycasting *raycasting,
+							t_mlx_data *mlx_data, int i);
+
+void			reset_variables(t_raycasting *raycasting);
+
+void			my_put_pixel(t_mlx_data *mlx_data, int x, int y, int color);
+int				create_argb(int t, int r, int g, int b);
 
 #endif
