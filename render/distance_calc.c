@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   distance_calc.c                                    :+:      :+:    :+:   */
+/*   distance_calc.c             d                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 14:38:04 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/06 14:39:42 by rbakker          ###   ########.fr       */
+/*   Updated: 2020/03/10 14:12:57 by rbakker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		delta_distance(t_raycasting *raycasting)
+void		delta_distance(t_data *data)
 {
-	DELTA_DIS_X = fabs(1 / RAY_DIR_X);
+	DELTA_DIS_X = fabs(1 / RAY_DIR_X); /*kijken of fabs wel gebruikt mag worden */
 	DELTA_DIS_Y = fabs(1 / RAY_DIR_Y);
 }
 
-void		side_distance(t_raycasting *raycasting)
+void		side_distance(t_data *data)
 {
 	if (STEP_X == -1)
 		SIDE_DIS_X = (POS_X - MAP_X) * DELTA_DIS_X;

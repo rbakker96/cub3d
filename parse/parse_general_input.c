@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse_file_one.c                                   :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2020/02/26 11:28:13 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/06 16:57:20 by rbakker       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse_general_input.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/26 11:28:13 by rbakker           #+#    #+#             */
+/*   Updated: 2020/03/10 14:53:31 by rbakker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,28 @@ void	parse_ceilling(t_data *data, char **input_data)
 	else
 		data->ceilling_color.validation = present;
 	data->ceilling_color = color_value(input_data[1], input_data);
+}
+
+void		general_input(t_data *data, int fd)
+{
+	int		res;
+	char	*line;
+
+	res = 1;
+	while (res > 0)
+	{
+		res = get_next_line(fd, &line);
+		if (res < 0)
+			free_machine(line, 0);
+		if (res == 0)
+			free(line);
+		if (!empty_line(line) && !general_input_line(line))
+			break ;
+		if (general_input_line(line))
+			parse_general_input(line, data);
+	}
+	if (map_line(line))
+		create_map(line, data);
+	free(line);
+	validate_general_input(data);
 }

@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane_calc.c                                       :+:      :+:    :+:   */
+/*   free_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 14:44:57 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/13 11:55:30 by rbakker          ###   ########.fr       */
+/*   Created: 2020/03/09 16:29:33 by rbakker           #+#    #+#             */
+/*   Updated: 2020/03/09 16:29:50 by rbakker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		initialize_plane(t_data *data)
+void	free_array(char **array)
 {
-	if (data->spawning_point == 'W')
+	int i;
+
+	i = 0;
+	if (!array)
+		return ;
+	while (array[i] != 0)
+		i++;
+	while (i >= 0)
 	{
-		PLANE_X = 0;
-		PLANE_Y = -0.66;
+		free(array[i]);
+		i--;
 	}
-	if (data->spawning_point == 'E')
-	{
-		PLANE_X = 0;
-		PLANE_Y = 0.66;
-	}
-	if (data->spawning_point == 'N')
-	{
-		PLANE_X = 0.66;
-		PLANE_Y = 0;
-	}
-	if (data->spawning_point == 'S')
-	{
-		PLANE_X = -0.66;
-		PLANE_Y = 0;
-	}
+	free(array);
+}
+
+void	free_machine(char *string, char **array)
+{
+	if (string)
+		free(string);
+	parse_error(24, array, 0);
 }

@@ -6,21 +6,37 @@
 #    By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/05 14:55:09 by rbakker           #+#    #+#              #
-#    Updated: 2020/02/28 16:47:54 by rbakker          ###   ########.fr        #
+#    Updated: 2020/03/13 14:10:47 by rbakker          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	cub3d
 
 SOURCES	= 	main.c \
+			error/error_functions.c \
+			error/free_functions.c \
+			error/reset_functions.c\
+			parse/parse_general_input.c \
+			parse/parse_map_input.c \
+			parse/parse_texture_input.c \
 			parse/parse.c \
-			parse/parse_file_one.c \
-			parse/parse_file_two.c \
-			utils/parse_utils_one.c \
-			utils/parse_utils_two.c \
-			utils/parse_utils_three.c \
-			utils/validate_map.c \
-			utils/free_reset_utils.c
+			parse/save_map.c \
+			parse/validate_corners.c \
+			parse/validate_map.c \
+			parse/validate_general_input.c \
+			parse/validate_read_lines.c \
+			render/render.c \
+			render/camera_calc.c \
+			render/direction_calc.c \
+			render/distance_calc.c \
+			render/plane_calc.c \
+			render/position_calc.c \
+			render/wall_calc.c \
+			render/mlx_functions.c \
+			render/reset_variables.c \
+			movement/move_calc.c \
+			movement/turn_calc.c \
+			movement/register_movement.c
 
 OBJECTS =	${SOURCES:%.c=%.o}
 

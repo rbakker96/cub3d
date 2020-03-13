@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2020/01/29 13:15:38 by rbakker        #+#    #+#                */
-/*   Updated: 2020/02/27 11:36:22 by rbakker       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/29 13:15:38 by rbakker           #+#    #+#             */
+/*   Updated: 2020/03/13 14:28:33 by rbakker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,18 @@ void	print_struct(t_data data)
 
 int		main(int argv, char **argc)
 {
-	t_data		data;
-//	t_mlx_data	mlx_data;
+	t_data			data;
 
 	parse_file(argv, argc, &data);
 	print_struct(data);
-//	mlx_data.mlx = mlx_init();
-//	mlx_data.mlx_win = mlx_new_window(mlx_data.mlx, data.resolution.x,
-//										data.resolution.y, "Hello world!");
-//	mlx_data.img = mlx_new_image(mlx_data.mlx, data.resolution.x,
-//									data.resolution.y);
-//	mlx_data.addr = mlx_get_data_addr(mlx_data.img, &mlx_data.bits_per_pixel,
-//									&mlx_data.line_length, &mlx_data.endian);
-//
-//	mlx_put_image_to_window(mlx_data.mlx, mlx_data.mlx_win, mlx_data.img, 0, 0);
-//	mlx_loop(mlx_data.mlx);
-//	print_output(&data);
-// 	free_memory(&data, 0, 0);
+	data.mlx_data.mlx = mlx_init();
+	data.mlx_data.mlx_win = mlx_new_window(data.mlx_data.mlx, data.resolution.x, data.resolution.y, "Cub3d");
+	data.mlx_data.img = mlx_new_image(data.mlx_data.mlx, data.resolution.x, data.resolution.y);
+	data.mlx_data.addr = mlx_get_data_addr(data.mlx_data.img, &data.mlx_data.bits_per_pixel,&data.mlx_data.line_length, &data.mlx_data.endian);
+	spawn_player(&data);
+	mlx_hook(data.mlx_data.mlx_win, KEYPRESS, PRESS_MASK, &key_press, &data);
+	mlx_hook(data.mlx_data.mlx_win, KEYRELEASE, RELEASE_MASK, &key_release, &data);
+	mlx_loop_hook(data.mlx_data.mlx, &process_movement, &data);
+	mlx_loop(data.mlx_data.mlx);
 	return (0);
 }
-

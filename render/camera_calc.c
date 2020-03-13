@@ -6,13 +6,13 @@
 /*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 14:43:26 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/06 14:43:43 by rbakker          ###   ########.fr       */
+/*   Updated: 2020/03/11 11:05:48 by rbakker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		initialize_camera_x(t_data *data, t_raycasting *raycasting, int i)
+void		camera_x(t_data *data, int i)
 {
 	CAM_X = ((2 * i) / (double)WIDTH) - 1;
 }
