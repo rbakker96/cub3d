@@ -1,14 +1,14 @@
 R 500 500
 
-NO ./path_to_the_north_texture
+NO ./textures/bluestone.png
 
-SO ./path_to_the_south_texture
+SO ./textures/eagle.png
 
-WE ./path_to_the_west_texture
+WE ./textures/wall_4.png
 
-EA ./path_to_the_east_texture
+EA ./textures/wall_3.png
 
-S ./path_to_the_sprite_texture
+S ./textures/sprite_1.png
 
 F 220,100,0
 C 225,30,0

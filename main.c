@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/29 13:15:38 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/14 14:34:25 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/19 11:36:00 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,11 @@ int		main(int argv, char **argc)
 
 	parse_file(argv, argc, &data);
 	print_struct(data);
-	data.mlx_data.mlx = mlx_init();
-	data.mlx_data.mlx_win = mlx_new_window(data.mlx_data.mlx, data.resolution.x, data.resolution.y, "Cub3d");
-	data.mlx_data.img = mlx_new_image(data.mlx_data.mlx, data.resolution.x, data.resolution.y);
-	data.mlx_data.addr = mlx_get_data_addr(data.mlx_data.img, &data.mlx_data.bits_per_pixel,&data.mlx_data.line_length, &data.mlx_data.endian);
+	init_mlx(&data);
+//	data.mlx_data.mlx = mlx_init();
+//	data.mlx_data.mlx_win = mlx_new_window(data.mlx_data.mlx, data.resolution.x, data.resolution.y, "Cub3d");
+//	data.mlx_data.img = mlx_new_image(data.mlx_data.mlx, data.resolution.x, data.resolution.y);
+//	data.mlx_data.addr = mlx_get_data_addr(data.mlx_data.img, &data.mlx_data.bits_per_pixel,&data.mlx_data.line_length, &data.mlx_data.endian);
 	spawn_player(&data);
 	mlx_hook(data.mlx_data.mlx_win, KEYPRESS, PRESS_MASK, &key_press, &data);
 	mlx_hook(data.mlx_data.mlx_win, KEYRELEASE, RELEASE_MASK, &key_release, &data);

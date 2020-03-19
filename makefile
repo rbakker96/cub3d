@@ -6,7 +6,7 @@
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/02/05 14:55:09 by rbakker        #+#    #+#                 #
-#    Updated: 2020/03/19 09:19:54 by roybakker     ########   odam.nl          #
+#    Updated: 2020/03/19 11:36:26 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME	=	cub3d
 SOURCES	= 	main.c \
 			error/error_functions.c \
 			error/free_functions.c \
-			error/reset_functions.c\
+			error/reset_functions.c \
+			mlx_functions/init_mlx.c \
 			parse/parse_general_input.c \
 			parse/parse_map_input.c \
 			parse/parse_texture_input.c \

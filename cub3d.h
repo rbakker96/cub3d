@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/19 09:49:01 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/19 11:36:28 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,18 @@ void		reset_validation(t_data *data);
 void		reset_texture(t_data *data);
 void		reset_color(t_data *data);
 void		reset_input_struct(t_data *data);
+
+/*
+**------------------------------MLX FUNCTIONS-----------------------------------
+*/
+
+/*
+** init_mlx.c
+*/
+void		init_mlx(t_data *data);
+void		open_window(t_data *data);
+void		create_new_image(t_data *data);
+void		get_data_addres(t_data *data);
 
 /*
 **----------------------------------PARSE---------------------------------------
