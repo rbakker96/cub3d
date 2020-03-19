@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 void		delta_distance(t_data *data)
 {

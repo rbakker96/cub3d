@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   defenitions.h                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 14:02:51 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/13 14:02:47 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   defenitions.h                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/06 14:02:51 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/19 10:13:20 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@
 
 # define WALL_DIS data->raycasting.perp_wall_distance
 
+# define SIDE data->raycasting.side
+
+# define LINE_HEIGHT data->raycasting.lineheight
+# define DRAW_START data->raycasting.draw_start
+# define DRAW_END data->raycasting.draw_end
+
 /*
 **--------------------------------MOVEMENT--------------------------------------
 */
@@ -94,5 +100,21 @@
 # define LOOK_RIGHT data->raycasting.move.turn_right
 # define MOVE_LEFT data->raycasting.move.move_left
 # define MOVE_RIGHT data->raycasting.move.move_right
+
+/*
+**--------------------------------TEXTURE---------------------------------------
+*/
+
+# define WALL_X data->texture.wallX
+
+# define TEX_X data->texture.texX
+# define TEX_Y data->texture.texY
+
+# define TEX_WIDTH data->texture.tex_resolution.x
+# define TEX_HEIGHT data->texture.tex_resolution.y
+
+# define STEP data->texture.step
+
+# define TEX_POS data->texture.texPos
 
 #endif

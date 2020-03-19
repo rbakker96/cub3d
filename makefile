@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/02/05 14:55:09 by rbakker           #+#    #+#              #
-#    Updated: 2020/03/13 14:10:47 by rbakker          ###   ########.fr        #
+#                                                         ::::::::             #
+#    makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: rbakker <rbakker@student.42.fr>              +#+                      #
+#                                                    +#+                       #
+#    Created: 2020/02/05 14:55:09 by rbakker        #+#    #+#                 #
+#    Updated: 2020/03/19 09:19:54 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ SOURCES	= 	main.c \
 			render/distance_calc.c \
 			render/plane_calc.c \
 			render/position_calc.c \
+			render/draw.c \
 			render/wall_calc.c \
+			render/texture_calc.c \
 			render/mlx_functions.c \
 			render/reset_variables.c \
 			movement/move_calc.c \
@@ -63,7 +65,7 @@ $(NAME): $(OBJECTS)
 	@make -C mlx
 	@echo "$(ORANGE)Creating on miniRT...			$(WHITE)"
 	@$(COMPILE) -Lmlx -lmlx -Lgnl -lgnl -Llist -llist -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME) $(OBJECTS)
-	@echo "$(GREEN)Succesfuly creating exe 'minirt'"
+	@echo "$(GREEN)Succesfuly creating exe 'cube3d'"
 
 %.o: %.c
 	@$(COMPILE) $(FLAGS) -Imlx -Ilibft -Ignl -Ilist -c -o $@ $<
@@ -91,6 +93,7 @@ fclean: clean
 	@echo "$(WHITE)Working on miniRT...	"
 	@echo "$(RED)DELETING EXECUTABLE"
 	@/bin/rm -f $(NAME)
+	@/bin/rm -f libmlx.dylib
 
 re: fclean all
 

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   reset_functions.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 16:30:30 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/10 14:53:10 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   reset_functions.c                                  :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/09 16:30:30 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/14 14:41:15 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 void	reset_validation(t_data *data)
 {

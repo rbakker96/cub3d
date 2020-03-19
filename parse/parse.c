@@ -6,11 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:56:57 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/11 11:34:11 by rbakker       ########   odam.nl         */
+/*   Updated: 2020/03/14 14:42:21 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 void		parse_file(int argv, char **argc, t_data *data)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   validate_corners.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 14:58:34 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/10 15:01:00 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   validate_corners.c                                 :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/09 14:58:34 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/14 14:42:34 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 /*
 ** Corner type one (y + 1 & x + 1)is specified as

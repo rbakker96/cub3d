@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 14:01:38 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/13 14:03:34 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   structs.h                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/06 14:01:38 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/19 09:08:04 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,15 +110,29 @@ typedef struct		s_raycasting
 	t_2d_int		map;
 	double			perp_wall_distance;
 	double			camera_x;
-	double			move_speed;
-	double			rot_speed;
 	int				side;
+	int				lineheight;
+	int				draw_start;
+	int				draw_end;
 }					t_raycasting;
+
+typedef struct		s_wall_tex
+{
+	t_2d_double		tex_resolution;
+	char			**screen_buffer;
+	double			wallX;
+	double			texX;
+	double			texY;
+	double			texPos;
+	double			step;
+	double			texNum;
+}					t_wall_tex;
 
 typedef struct		s_data
 {
 	t_mlx_data		mlx_data;
 	t_raycasting	raycasting;
+	t_wall_tex		texture;
 	t_resolution	resolution;
 	t_color			floor_color;
 	t_color			ceilling_color;

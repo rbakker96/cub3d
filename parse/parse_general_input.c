@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_general_input.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 11:28:13 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/10 14:53:31 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   parse_general_input.c                              :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/02/26 11:28:13 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/14 14:42:07 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 void		parse_general_input(char *line, t_data *data)
 {

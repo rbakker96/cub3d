@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   validate_read_lines.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 16:34:18 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/09 16:36:29 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   validate_read_lines.c                              :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/09 16:34:18 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/14 14:42:45 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 int		line_count(char **input_data)
 {

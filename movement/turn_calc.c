@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   turn_calc.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/13 14:07:05 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/13 14:07:25 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   turn_calc.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/13 14:07:05 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/14 14:41:54 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 void	turn_right(t_data *data)
 {

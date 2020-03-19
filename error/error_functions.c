@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   error_functions.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 11:17:13 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/09 17:55:10 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   error_functions.c                                  :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/02/26 11:17:13 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/14 14:40:59 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 char	*table_1(int error_code)
 {

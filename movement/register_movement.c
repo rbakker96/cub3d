@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   register_movement.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/10 13:37:38 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/13 15:28:48 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   register_movement.c                                :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/10 13:37:38 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/16 14:06:53 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 int		key_press(int keycode, t_data *data)
 {
+	if (keycode == 6)
+	{
+		printf("positie x = %f \n", POS_X);
+		printf("positie y = %f \n", POS_Y);
+		printf("dir x = %f \n", DIR_X);
+		printf("dir y = %f \n", DIR_Y);
+	}
 	if (keycode == W_KEY)
 		FORWARD = 1;
 	if (keycode == S_KEY)
@@ -60,7 +67,8 @@ int		process_movement(t_data *data)
 		turn_left(data);
 	else if (LOOK_RIGHT == 1)
 		turn_right(data);
-	if (FORWARD == 1 || BACKWARD == 1 || LOOK_LEFT == 1 || LOOK_RIGHT == 1)
+	if (FORWARD == 1 || BACKWARD == 1 || LOOK_LEFT == 1 || LOOK_RIGHT == 1 ||
+		MOVE_RIGHT == 1 || MOVE_LEFT == 1)
 		render_screen(data, 0);
 	return (0);
 }

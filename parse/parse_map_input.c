@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_map_input.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 16:22:51 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/10 15:01:10 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   parse_map_input.c                                  :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/09 16:22:51 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/14 14:42:11 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 void		validate_map(t_data *data, int x, int y)
 {

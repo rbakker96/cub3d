@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 10:44:33 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/13 14:11:06 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   cub3d.h                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/02/26 10:44:33 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/19 09:49:01 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,10 +171,20 @@ void		current_position(t_data *data);
 */
 void		identify_wall(t_data *data);
 void		prep_wall_distance(t_data *data);
-void		draw_screen(t_data *data, int i);
-void		draw_ceilling(t_data *data, int draw_start, int i);
-void		draw_wall(t_data *data, int draw_start, int draw_end, int i);
-void		draw_floor(t_data *data, int draw_end, int i);
+
+/*
+** texture_calc.c
+*/
+void		calculate_wall_x(t_data *data);
+void		calculate_tex_x(t_data *data);
+
+/*
+** draw.c
+*/
+void		draw_screen(t_data *data, int x);
+void		draw_ceilling(t_data *data, int x);
+void		draw_wall(t_data *data, int x);
+void		draw_floor(t_data *data, int x);
 
 /*
 ** mlx_fucntions.c

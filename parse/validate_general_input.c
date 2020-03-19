@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   validate_general_input.c                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 16:33:17 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/10 14:41:17 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   validate_general_input.c                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/09 16:33:17 by rbakker        #+#    #+#                */
+/*   Updated: 2020/03/14 14:42:38 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
 int		check_file_name(char *file_name)
 {
