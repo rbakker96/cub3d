@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:44:57 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/14 14:43:14 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/20 10:28:35 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void		initialize_plane(t_data *data)
 {
-	if (data->spawning_point == 'W')
+	if (data->map.spawning_point == 'W')
 	{
 		PLANE_X = 0;
 		PLANE_Y = -0.66;
 	}
-	if (data->spawning_point == 'E')
+	if (data->map.spawning_point == 'E')
 	{
 		PLANE_X = 0;
 		PLANE_Y = 0.66;
 	}
-	if (data->spawning_point == 'N')
+	if (data->map.spawning_point == 'N')
 	{
 		PLANE_X = 0.66;
 		PLANE_Y = 0;
 	}
-	if (data->spawning_point == 'S')
+	if (data->map.spawning_point == 'S')
 	{
 		PLANE_X = -0.66;
 		PLANE_Y = 0;

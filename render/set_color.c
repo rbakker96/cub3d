@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   texture_calc.c                                     :+:    :+:            */
+/*   set_color.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/19 08:35:22 by roybakker      #+#    #+#                */
-/*   Updated: 2020/03/19 08:51:53 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/25 18:56:56 by roybakker      #+#    #+#                */
+/*   Updated: 2020/03/25 19:03:51 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
-void	calculate_wall_x(t_data *data)
+uint32_t		create_rgb(int r, int g, int b)
 {
-	if (SIDE == 0)
-		WALL_X = POS_Y + WALL_DIS * RAY_DIR_Y;
-	else
-		WALL_X = POS_X + WALL_DIS * RAY_DIR_X;
-	WALL_X -= (int)WALL_X;
+	return (r << 16 | g << 8 | b);
 }
 
-void	calculate_tex_x(t_data *data)
+void	set_floor_and_ceilling_dcolor(t_data *data)
 {
-	TEX_X = (int)WALL_X * (double)TEX_WIDTH;
-	if (SIDE == 0 && RAY_DIR_X > 0)
-		TEX_X = TEX_WIDTH - TEX_X - 1;
-	if (SIDE == 1 && RAY_DIR_Y < 0)
-		TEX_X = TEX_WIDTH - TEX_X - 1;
+	data->color.ceilling_color.color = create_rgb(data->color.ceilling_color.r,
+												data->color.ceilling_color.g,
+												data->color.ceilling_color.b);
+	data->color.floor_color.color = create_rgb(data->color.floor_color.r,
+												data->color.floor_color.g,
+												data->color.floor_color.b);
 }

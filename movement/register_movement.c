@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/10 13:37:38 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/16 14:06:53 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/20 10:21:50 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 int		key_press(int keycode, t_data *data)
 {
-	if (keycode == 6)
-	{
-		printf("positie x = %f \n", POS_X);
-		printf("positie y = %f \n", POS_Y);
-		printf("dir x = %f \n", DIR_X);
-		printf("dir y = %f \n", DIR_Y);
-	}
 	if (keycode == W_KEY)
 		FORWARD = 1;
 	if (keycode == S_KEY)

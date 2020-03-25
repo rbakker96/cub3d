@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:44:02 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/14 14:43:18 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/20 10:28:55 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	start_position(t_data *data)
 	int		y;
 
 	y = 0;
-	while (data->map[y] != 0)
+	while (data->map.map[y] != 0)
 	{
 		x = 0;
-		while (data->map[y][x] != '\0')
+		while (data->map.map[y][x] != '\0')
 		{
-			if (data->map[y][x] == data->spawning_point)
+			if (data->map.map[y][x] == data->map.spawning_point)
 			{
 				POS_X = x + 0.5;
 				POS_Y = y + 0.5;

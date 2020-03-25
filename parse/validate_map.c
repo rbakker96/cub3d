@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/28 16:47:23 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/14 14:42:42 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/20 10:26:57 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,19 +87,19 @@ void	check_start_position_and_spawning(t_data *data)
 
 	i = 0;
 	validation = 0;
-	while (data->map_input[i] != '\0')
+	while (data->map.map_input[i] != '\0')
 	{
-		if (data->map_input[i] == 'S' || data->map_input[i] == 'N' ||
-			data->map_input[i] == 'W' || data->map_input[i] == 'E')
+		if (data->map.map_input[i] == 'S' || data->map.map_input[i] == 'N' ||
+			data->map.map_input[i] == 'W' || data->map.map_input[i] == 'E')
 			validation++;
-		if (data->map_input[i] == 'S')
-			data->spawning_point = 'S';
-		if (data->map_input[i] == 'W')
-			data->spawning_point = 'W';
-		if (data->map_input[i] == 'E')
-			data->spawning_point = 'E';
-		if (data->map_input[i] == 'N')
-			data->spawning_point = 'N';
+		if (data->map.map_input[i] == 'S')
+			data->map.spawning_point = 'S';
+		if (data->map.map_input[i] == 'W')
+			data->map.spawning_point = 'W';
+		if (data->map.map_input[i] == 'E')
+			data->map.spawning_point = 'E';
+		if (data->map.map_input[i] == 'N')
+			data->map.spawning_point = 'N';
 		i++;
 	}
 	if (validation != 1)

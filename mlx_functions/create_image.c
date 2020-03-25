@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   reset_variables.c                                  :+:    :+:            */
+/*   create_image.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/09 16:52:21 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 10:29:31 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/25 19:05:46 by roybakker      #+#    #+#                */
+/*   Updated: 2020/03/25 20:15:47 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
-void	reset_variables(t_data *data)
+void	pixel_to_image(t_data *data, int x, int y, int color)
 {
-	POS_X = 0;
-	POS_Y = 0;
-	MAP_X = 0;
-	MAP_Y = 0;
-	DIR_X = 0;
-	DIR_Y = 0;
-	PLANE_X = 0;
-	PLANE_Y = 0;
-	SIDE_DIS_X = 0;
-	SIDE_DIS_Y = 0;
-	DELTA_DIS_X = 0;
-	DELTA_DIS_Y = 0;
-	STEP_X = 0;
-	STEP_Y = 0;
-	RAY_DIR_X = 0;
-	RAY_DIR_Y = 0;
-	CAM_X = 0;
-	WALL_DIS = 0;
-	SIDE = 0;
+	char	*dst;
+
+	if (data->mlx_data.image_one.usage == off_screen)
+		dst = ADDRES_ONE + (y * LL_ONE + x * (BPP_ONE / 8));
+	else
+		dst = ADDRES_TWO + (y * LL_TWO + x * (BPP_TWO / 8));
+	*(unsigned int*)dst = color;
 }

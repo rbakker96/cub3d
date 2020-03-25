@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:40:29 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/14 14:43:01 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/20 10:27:28 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void		view_direction(t_data *data)
 {
-	if (data->spawning_point == 'S')
+	if (data->map.spawning_point == 'S')
 	{
 		DIR_X = 0.0;
 		DIR_Y = 1.0;
 	}
-	if (data->spawning_point == 'W')
+	if (data->map.spawning_point == 'W')
 	{
 		DIR_X = -1.0;
 		DIR_Y = 0.0;
 	}
-	if (data->spawning_point == 'E')
+	if (data->map.spawning_point == 'E')
 	{
 		DIR_X = 1.0;
 		DIR_Y = 0.0;
 	}
-	if (data->spawning_point == 'N')
+	if (data->map.spawning_point == 'N')
 	{
 		DIR_X = 0.0;
 		DIR_Y = -1.0;

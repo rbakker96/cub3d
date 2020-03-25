@@ -6,7 +6,7 @@
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/02/05 14:55:09 by rbakker        #+#    #+#                 #
-#    Updated: 2020/03/19 11:36:26 by roybakker     ########   odam.nl          #
+#    Updated: 2020/03/25 19:12:02 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SOURCES	= 	main.c \
 			error/free_functions.c \
 			error/reset_functions.c \
 			mlx_functions/init_mlx.c \
+			mlx_functions/create_texture.c \
+			mlx_functions/create_image.c \
 			parse/parse_general_input.c \
 			parse/parse_map_input.c \
 			parse/parse_texture_input.c \
@@ -34,12 +36,15 @@ SOURCES	= 	main.c \
 			render/position_calc.c \
 			render/draw.c \
 			render/wall_calc.c \
-			render/texture_calc.c \
-			render/mlx_functions.c \
 			render/reset_variables.c \
+			render/set_color.c \
 			movement/move_calc.c \
 			movement/turn_calc.c \
-			movement/register_movement.c
+			movement/register_movement.c \
+			texture/texture_color.c \
+			texture/texture_calc.c \
+			texture/tex_x.c \
+			texture/wall_x.c
 
 OBJECTS =	${SOURCES:%.c=%.o}
 

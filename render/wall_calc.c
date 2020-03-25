@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:42:10 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/19 09:18:41 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/20 10:29:49 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		identify_wall(t_data *data)
 			MAP_Y = MAP_Y + STEP_Y;
 			SIDE = 1;
 		}
-		if (data->map[MAP_Y][MAP_X] == '1')
+		if (data->map.map[MAP_Y][MAP_X] == '1')
 			break ;
 	}
 }

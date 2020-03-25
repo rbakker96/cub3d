@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 14:58:34 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/14 14:42:34 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/20 10:25:48 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int		coner_type_four(t_data *data, int i, int x, int y)
 		while (MAP[y][x] == '1' && MAP[y][x + 1] == ' ')
 			y++;
 	else if (i == bottom)
-		while (MAP[y][x] == '1' && y < (line_count(data->map) - 1))
+		while (MAP[y][x] == '1' && y < (line_count(data->map.map) - 1))
 			y++;
 	if (MAP[y][x] == '1' && MAP[y][x + 1] == '1')
 		return (y);

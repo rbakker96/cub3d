@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/19 11:36:28 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/25 20:13:58 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,20 @@ void		init_mlx(t_data *data);
 void		open_window(t_data *data);
 void		create_new_image(t_data *data);
 void		get_data_addres(t_data *data);
+
+/*
+** create_texture.c
+*/
+void		create_texture_images(t_data *data);
+void		east_texture_image(t_data *data);
+void		north_texture_image(t_data *data);
+void		south_texture_image(t_data *data);
+void		west_texture_image(t_data *data);
+
+/*
+** create_image.c
+*/
+void		pixel_to_image(t_data *data, int x, int y, int color);
 
 /*
 **----------------------------------PARSE---------------------------------------
@@ -145,9 +159,15 @@ void		validate_general_input(t_data *data);
 /*
 ** render.c
 */
-void		spawn_player(t_data *data);
+void		pre_calculations(t_data *data);
 void		calculate_variables(t_data *data, int i);
 void		render_screen(t_data *data, int i);
+
+/*
+** set_colors.c
+*/
+void		set_floor_and_ceilling_dcolor(t_data *data);
+uint32_t	create_rgb(int r, int g, int b);
 
 /*
 ** camera_calc.c
@@ -185,24 +205,12 @@ void		identify_wall(t_data *data);
 void		prep_wall_distance(t_data *data);
 
 /*
-** texture_calc.c
-*/
-void		calculate_wall_x(t_data *data);
-void		calculate_tex_x(t_data *data);
-
-/*
 ** draw.c
 */
 void		draw_screen(t_data *data, int x);
 void		draw_ceilling(t_data *data, int x);
 void		draw_wall(t_data *data, int x);
 void		draw_floor(t_data *data, int x);
-
-/*
-** mlx_fucntions.c
-*/
-void		my_put_pixel(t_mlx_data *mlx_data, int x, int y, int color);
-int			create_argb(int t, int r, int g, int b);
 
 /*
 ** reset_variables.c
@@ -233,5 +241,37 @@ void		turn_left(t_data *data);
 int			key_press(int keycode, t_data *data);
 int			key_release(int keycode, t_data *data);
 int			process_movement(t_data *data);
+
+/*
+**---------------------------------TEXTURE--------------------------------------
+*/
+
+/*
+** wall_x.c
+*/
+double		calculate_wall_x(t_data *data);
+
+/*
+** tex_x.c
+*/
+int			calculate_tex_x(t_data *data, double wall_x, int tex_width);
+
+/*
+** texture_calc.c
+*/
+void		calculate_texture_variables(t_data *data);
+void		calculate_north_variables(t_data *data);
+void		calculate_south_variables(t_data *data);
+void		calculate_west_variables(t_data *data);
+void		calculate_east_variables(t_data *data);
+
+/*
+** texture_color.c
+*/
+void		place_texture_color(t_data *data, int x, int y);
+void		north_texture(t_data *data, int x, int y);
+void		south_texture(t_data *data, int x, int y);
+void		east_texture(t_data *data, int x, int y);
+void		west_texture(t_data *data, int x, int y);
 
 #endif

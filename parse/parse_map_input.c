@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:22:51 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/14 14:42:11 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/20 10:23:49 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		validate_map(t_data *data, int x, int y)
 {
 	int map_size;
 
-	map_size = line_count(data->map);
+	map_size = line_count(data->map.map);
 	check_top_line(data, x, y);
 	y++;
 	while (y < (map_size - 1))
@@ -41,7 +41,7 @@ void		create_map(char *line, t_data *data)
 		free_machine(line, 0);
 	new_map = (ofset) ? ofset_present(line, new_map, ofset, 0) :
 						ofset_not_present(line, new_map, 0, 0);
-	data->map_input = new_map;
+	data->map.map_input = new_map;
 }
 
 void		update_map(char *line, t_data *data, int x)
@@ -51,15 +51,15 @@ void		update_map(char *line, t_data *data, int x)
 	int		len_map_addition;
 	int		ofset;
 
-	len_current_map = ft_strlen(data->map_input);
+	len_current_map = ft_strlen(data->map.map_input);
 	len_map_addition = ft_strlen(line);
 	ofset = line_ofset(line);
 	updated_map = malloc(sizeof(char) * len_current_map + len_map_addition + 2);
 	if (!updated_map)
 		free_machine(line, 0);
-	while (data->map_input[x] != '\0')
+	while (data->map.map_input[x] != '\0')
 	{
-		updated_map[x] = data->map_input[x];
+		updated_map[x] = data->map.map_input[x];
 		x++;
 	}
 	updated_map[x] = '\n';
@@ -67,9 +67,9 @@ void		update_map(char *line, t_data *data, int x)
 	ofset = (ofset) ? ofset + x : 0;
 	updated_map = (ofset) ? ofset_present(line, updated_map, ofset, x) :
 							ofset_not_present(line, updated_map, 0, x);
-	free(data->map_input);
-	data->map_input = updated_map;
-	data->map = ft_split(updated_map, '\n');
+	free(data->map.map_input);
+	data->map.map_input = updated_map;
+	data->map.map = ft_split(updated_map, '\n');
 }
 
 void		map_input(t_data *data, int fd)

@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/19 10:57:45 by roybakker      #+#    #+#                */
-/*   Updated: 2020/03/19 11:15:27 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/25 19:34:57 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,40 @@
 
 void	init_mlx(t_data *data)
 {
-	data->mlx_data.mlx = mlx_init();
-	if (!data->mlx_data.mlx)
+	MLX = mlx_init();
+	if (!MLX)
 		parse_error(31, 0, 0);
 	open_window(data);
 	create_new_image(data);
 	get_data_addres(data);
+	create_texture_images(data);
 }
 
 void	open_window(t_data *data)
 {
-	data->mlx_data.mlx_win = mlx_new_window(data->mlx_data.mlx, data->resolution.x, data->resolution.y, "Cub3d");
-	if (!data->mlx_data.mlx_win)
+	WINDOW = mlx_new_window(MLX, HEIGHT, WIDTH, "Cub3d");
+	if (!WINDOW)
 		parse_error(32, 0, 0);
 }
 
 void	create_new_image(t_data *data)
 {
-	data->mlx_data.img = mlx_new_image(data->mlx_data.mlx, data->resolution.x, data->resolution.y);
-	if (!data->mlx_data.img)
+	IMG_ONE = mlx_new_image(MLX, HEIGHT, WIDTH);
+	data->mlx_data.image_one.usage = off_screen;
+	if (!IMG_ONE)
+		parse_error(33 , 0, 0);
+	IMG_TWO = mlx_new_image(MLX, HEIGHT, WIDTH);
+	data->mlx_data.image_two.usage = off_screen;
+	if (!IMG_TWO)
 		parse_error(33 , 0, 0);
 }
 
 void	get_data_addres(t_data *data)
 {
-	data->mlx_data.addr = mlx_get_data_addr(data->mlx_data.img, &data->mlx_data.bits_per_pixel,&data->mlx_data.line_length, &data->mlx_data.endian);
-	if (!data->mlx_data.addr)
+	ADDRES_ONE = mlx_get_data_addr(IMG_ONE, &BPP_ONE, &LL_ONE, &ENDIAN_ONE);
+	if (!ADDRES_ONE)
+		parse_error(34, 0, 0);
+	ADDRES_TWO = mlx_get_data_addr(IMG_TWO, &BPP_TWO, &LL_TWO, &ENDIAN_TWO);
+	if (!ADDRES_TWO)
 		parse_error(34, 0, 0);
 }

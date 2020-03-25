@@ -4,14 +4,14 @@ NO ./textures/bluestone.png
 
 SO ./textures/eagle.png
 
-WE ./textures/wall_4.png
+WE ./textures/wall_3.png
 
-EA ./textures/wall_3.png
+EA ./textures/wall_2.png
 
-S ./textures/sprite_1.png
+S ./textures/barrel.png
 
-F 220,100,0
-C 225,30,0
+F 0,0,0
+C 255,0,0
 
     11111  111111
     10001  100001

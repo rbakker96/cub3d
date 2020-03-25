@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   reset_variables.c                                  :+:    :+:            */
+/*   tex_x.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/09 16:52:21 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 10:29:31 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/23 10:52:14 by roybakker      #+#    #+#                */
+/*   Updated: 2020/03/25 11:00:56 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
-void	reset_variables(t_data *data)
+int	calculate_tex_x(t_data *data, double wall_x, int tex_width)
 {
-	POS_X = 0;
-	POS_Y = 0;
-	MAP_X = 0;
-	MAP_Y = 0;
-	DIR_X = 0;
-	DIR_Y = 0;
-	PLANE_X = 0;
-	PLANE_Y = 0;
-	SIDE_DIS_X = 0;
-	SIDE_DIS_Y = 0;
-	DELTA_DIS_X = 0;
-	DELTA_DIS_Y = 0;
-	STEP_X = 0;
-	STEP_Y = 0;
-	RAY_DIR_X = 0;
-	RAY_DIR_Y = 0;
-	CAM_X = 0;
-	WALL_DIS = 0;
-	SIDE = 0;
+	int tex_x;
+
+	tex_x = (int)(wall_x * (double)tex_width);
+	if (SIDE == 0 && RAY_DIR_X > 0)
+	{
+		tex_x = tex_width - tex_x - 1;
+	}
+	if (SIDE == 1 && RAY_DIR_Y < 0)
+		tex_x = tex_width - tex_x - 1;
+	return (tex_x);
 }
