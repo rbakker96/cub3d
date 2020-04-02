@@ -1,4 +1,4 @@
-R 500 500
+R 250 250
 
 NO ./textures/bluestone.png
 
@@ -11,7 +11,7 @@ EA ./textures/wall_2.png
 S ./textures/barrel.png
 
 F 0,0,0
-C 255,0,0
+C 255,255,255
 
     11111  111111
     10001  100201
