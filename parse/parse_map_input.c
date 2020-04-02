@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:22:51 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 10:23:49 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/31 15:50:51 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,7 @@ void		map_input(t_data *data, int fd)
 		update_map(line, data, 0);
 	}
 	validate_map(data, 0, 0);
+	count_sprites(data);
+	malloc_distance_array(data);
+	malloc_sprites_array(data);
 }

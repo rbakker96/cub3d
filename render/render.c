@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/03 15:23:10 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/25 18:59:29 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/01 10:41:47 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,27 @@ void		pre_calculations(t_data *data)
 	render_screen(data, 0);
 }
 
-void		calculate_variables(t_data *data, int i)
+void		calculate_variables(t_data *data, int x)
 {
-	camera_x(data, i);
+	camera_x(data, x);
 	current_position(data);
 	ray_direction(data);
 	delta_distance(data);
 	step_size(data);
 	side_distance(data);
 	identify_wall(data);
-	prep_wall_distance(data);
+	prep_wall_distance(data, x);
 }
 
-void		render_screen(t_data *data, int i)
+void		render_screen(t_data *data, int x)
 {
-	while (i < WIDTH)
+	while (x < WIDTH)
 	{
-		calculate_variables(data, i);
-		draw_screen(data, i);
-		i++;
+		calculate_variables(data, x);
+		draw_screen(data, x);
+		x++;
 	}
+	cast_sprites(data, 0);
 	if (data->mlx_data.image_one.usage == off_screen)
 	{
 		mlx_put_image_to_window(data->mlx_data.mlx, data->mlx_data.mlx_win,

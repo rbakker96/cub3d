@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:01:38 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/25 13:36:53 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/01 20:32:33 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ typedef struct			s_2d_int
 	int					y;
 }						t_2d_int;
 
+typedef struct			s_sprite_position
+{
+	t_2d_double			position;
+	double				distance;
+}						t_sprite_position;
+
 typedef struct			s_color
 {
 	int					r;
@@ -79,6 +85,34 @@ typedef struct			s_texture
 	double				step;
 	int					validation;
 }						t_texture;
+
+typedef struct			s_sprite
+{
+	t_mlx_image			image;
+	t_2d_int			sprite_resolution;
+	t_sprite_position	*sprite_position;
+	int					amount_of_sprites;
+	char				*path;
+	double				*distance;
+	uint32_t			color;
+	double				spriteX;
+	double				spriteY;
+	double				transformX;
+	double				transformY;
+	int					splitscreenX;
+	int					sprite_height;
+	int					sprite_width;
+	int					draw_start_x;
+	int					draw_end_x;
+	int					draw_start_y;
+	int					draw_end_y;
+	int					texX_sprite;
+	int					texY_sprite;
+	int					stripe;
+	double				matrix;
+	int					validation;
+}						t_sprite;
+
 
 typedef struct			s_movement
 {
@@ -115,7 +149,7 @@ typedef struct			s_texture_data
 	t_texture			south_texture;
 	t_texture			west_texture;
 	t_texture			east_texture;
-	t_texture			sprite_texture;
+	t_sprite			sprite_texture;
 }						t_texture_data;
 
 typedef struct 			s_color_data

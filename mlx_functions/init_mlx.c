@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/19 10:57:45 by roybakker      #+#    #+#                */
-/*   Updated: 2020/03/25 19:34:57 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/01 19:33:31 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_mlx(t_data *data)
 	create_new_image(data);
 	get_data_addres(data);
 	create_texture_images(data);
+	create_sprite_image(data);
 }
 
 void	open_window(t_data *data)

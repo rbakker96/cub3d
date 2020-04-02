@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/25 20:13:58 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/01 19:33:51 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ void		west_texture_image(t_data *data);
 ** create_image.c
 */
 void		pixel_to_image(t_data *data, int x, int y, int color);
+
+/*
+** create_sprite.c
+*/
+void		create_sprite_image(t_data *data);
 
 /*
 **----------------------------------PARSE---------------------------------------
@@ -160,8 +165,8 @@ void		validate_general_input(t_data *data);
 ** render.c
 */
 void		pre_calculations(t_data *data);
-void		calculate_variables(t_data *data, int i);
-void		render_screen(t_data *data, int i);
+void		calculate_variables(t_data *data, int x);
+void		render_screen(t_data *data, int x);
 
 /*
 ** set_colors.c
@@ -172,7 +177,7 @@ uint32_t	create_rgb(int r, int g, int b);
 /*
 ** camera_calc.c
 */
-void		camera_x(t_data *data, int i);
+void		camera_x(t_data *data, int x);
 
 /*
 ** direction_calc.c
@@ -202,7 +207,7 @@ void		current_position(t_data *data);
 ** wall_calc.c
 */
 void		identify_wall(t_data *data);
-void		prep_wall_distance(t_data *data);
+void		prep_wall_distance(t_data *data, int x);
 
 /*
 ** draw.c
@@ -273,5 +278,50 @@ void		north_texture(t_data *data, int x, int y);
 void		south_texture(t_data *data, int x, int y);
 void		east_texture(t_data *data, int x, int y);
 void		west_texture(t_data *data, int x, int y);
+
+/*
+**---------------------------------SPRITES--------------------------------------
+*/
+
+/*
+** cast_sprite.c
+*/
+void	cast_sprites(t_data *data, int i);
+void	calcualte_sprite_variables(t_data *data);
+
+/*
+** malloc_space.c
+*/
+void		count_sprites(t_data *data);
+void		malloc_distance_array(t_data *data);
+void		malloc_sprites_array(t_data *data);
+
+/*
+** sprite_position.c
+*/
+void		sprite_position_and_distance(t_data *data);
+
+/*
+** sort_sprites.c
+*/
+void		sort_sprites(t_data *data);
+void		sprite_distance(t_data *data, int i);
+
+/*
+** transform_position.c
+*/
+void		transform_sprite_position(t_data *data, int i);
+
+/*
+** sprite_dimensions.c
+*/
+void		sprite_dimensions(t_data *data);
+void		sprite_height(t_data *data);
+void		sprite_width(t_data *data);
+
+/*
+** sprite_color.c
+*/
+void		sprite_color(t_data *data, int y);
 
 #endif

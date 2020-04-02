@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:30:30 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 17:23:11 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/27 12:01:42 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	reset_texture(t_data *data)
 	data->texture_data.north_texture.path = 0;
 	data->texture_data.south_texture.path = 0;
 	data->texture_data.west_texture.path = 0;
+	data->texture_data.sprite_texture.distance = 0;
 	data->map.spawning_point = 0;
 }
 

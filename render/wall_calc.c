@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:42:10 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 10:29:49 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/27 14:09:01 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ void		identify_wall(t_data *data)
 	}
 }
 
-void		prep_wall_distance(t_data *data)
+void		prep_wall_distance(t_data *data, int x)
 {
 	if (SIDE == 0)
 		WALL_DIS = (MAP_X - POS_X + (1 - STEP_X) / 2) / RAY_DIR_X;
 	else
 		WALL_DIS = (MAP_Y - POS_Y + (1 - STEP_Y) / 2) / RAY_DIR_Y;
+	data->texture_data.sprite_texture.distance[x] = WALL_DIS;
 }

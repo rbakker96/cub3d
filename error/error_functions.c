@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:17:13 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/19 11:15:46 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/27 12:02:41 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	*table_3(int error_code)
 	if (error_code == 34)
 		return ("Error\nMLX failed to get data address\n");
 	if (error_code == 35)
-		return ("Error\n\n");
+		return ("Error\nMalloc failed\n");
 	if (error_code == 36)
 		return ("Error\n\n");
 	return (0);

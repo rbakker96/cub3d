@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:02:51 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/25 20:02:16 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/31 14:30:04 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,10 +159,6 @@
 # define ENDIAN_west data->texture_data.west_texture.image.endian
 # define ENDIAN_south data->texture_data.south_texture.image.endian
 
-
-
-
-
 # define TEX_HEIGHT_north data->texture_data.north_texture.tex_resolution.x
 # define TEX_HEIGHT_east data->texture_data.east_texture.tex_resolution.x
 # define TEX_HEIGHT_west data->texture_data.west_texture.tex_resolution.x
@@ -202,5 +198,51 @@
 # define TEX_COLOR_east data->texture_data.east_texture.color
 # define TEX_COLOR_south data->texture_data.south_texture.color
 # define TEX_COLOR_west data->texture_data.west_texture.color
+
+/*
+**--------------------------------SPRITES---------------------------------------
+*/
+
+# define IMG_SPRITE data->texture_data.sprite_texture.image.img
+# define ADDRES_SPRITE data->texture_data.sprite_texture.image.addr
+# define BPP_SPRITE data->texture_data.sprite_texture.image.bits_per_pixel
+# define LL_SPRITE data->texture_data.sprite_texture.image.line_length
+# define ENDIAN_SPRITE data->texture_data.sprite_texture.image.endian
+
+# define PATH_SPRITE data->texture_data.sprite_texture.path
+
+# define PATH_HEIGHT data->texture_data.sprite_texture.tex_resolution.x
+# define PATH_WIDTH data->texture_data.sprite_texture.tex_resolution.y
+
+# define TEX_HEIGHT_SPRITE data->texture_data.sprite_texture.sprite_resolution.x
+# define TEX_WIDTH_SPRITE data->texture_data.sprite_texture.sprite_resolution.y
+
+# define SPRITE_AMOUNT data->texture_data.sprite_texture.amount_of_sprites
+
+# define SPRITE_X data->texture_data.sprite_texture.spriteX
+# define SPRITE_Y data->texture_data.sprite_texture.spriteY
+
+# define MATRIX data->texture_data.sprite_texture.matrix
+
+# define TRANSFORM_X data->texture_data.sprite_texture.transformX
+# define TRANSFORM_Y data->texture_data.sprite_texture.transformY
+
+# define SPLITSCREEN_X data->texture_data.sprite_texture.splitscreenX
+
+# define SPRITE_HEIGHT data->texture_data.sprite_texture.sprite_height
+# define SPRITE_WIDTH data->texture_data.sprite_texture.sprite_width
+
+# define DRAW_START_X data->texture_data.sprite_texture.draw_start_x
+# define DRAW_START_Y data->texture_data.sprite_texture.draw_start_y
+
+# define DRAW_END_X data->texture_data.sprite_texture.draw_end_x
+# define DRAW_END_Y data->texture_data.sprite_texture.draw_end_y
+
+# define STRIPE data->texture_data.sprite_texture.stripe
+
+# define TEX_X_SPRITE data->texture_data.sprite_texture.texX_sprite
+# define TEX_Y_SPRITE data->texture_data.sprite_texture.texY_sprite
+
+# define SPRITE_COLOR data->texture_data.sprite_texture.color
 
 #endif

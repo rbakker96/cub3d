@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:34:18 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/14 14:42:45 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/03/31 15:27:27 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,13 @@ int		map_line(char *line)
 	int i;
 
 	i = 0;
-	if (line[i] != '1' && line[i] != '0' && line[i] != ' ')
+	if (line[i] != '1' && line[i] != '0' && line[i] != ' ' && line[i] != '2')
 		return (0);
 	while (line[i] != '\0')
 	{
 		if (line[i] != 'N' && line[i] != 'S' && line[i] != 'E' &&
 			line[i] != 'W' && line[i] != '1' && line[i] != '0' &&
-			line[i] != ' ')
+			line[i] != ' ' && line[i] != '2')
 			return (0);
 		i++;
 	}

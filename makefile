@@ -6,7 +6,7 @@
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/02/05 14:55:09 by rbakker        #+#    #+#                 #
-#    Updated: 2020/03/25 19:12:02 by roybakker     ########   odam.nl          #
+#    Updated: 2020/04/01 13:44:19 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SOURCES	= 	main.c \
 			mlx_functions/init_mlx.c \
 			mlx_functions/create_texture.c \
 			mlx_functions/create_image.c \
+			mlx_functions/create_sprite.c \
 			parse/parse_general_input.c \
 			parse/parse_map_input.c \
 			parse/parse_texture_input.c \
@@ -44,7 +45,14 @@ SOURCES	= 	main.c \
 			texture/texture_color.c \
 			texture/texture_calc.c \
 			texture/tex_x.c \
-			texture/wall_x.c
+			texture/wall_x.c \
+			sprites/malloc_space.c \
+			sprites/sort_sprites.c \
+			sprites/sprite_dimensions.c \
+			sprites/sprite_position.c \
+			sprites/sprites.c \
+			sprites/transform_position.c \
+			sprites/sprite_color.c
 
 OBJECTS =	${SOURCES:%.c=%.o}
 
@@ -74,6 +82,7 @@ $(NAME): $(OBJECTS)
 	@echo "$(GREEN)Succesfuly creating exe 'cube3d'"
 
 %.o: %.c
+	@echo "$(GREY)Compiling...				$(WHITE)$<"
 	@$(COMPILE) $(FLAGS) -Imlx -Ilibft -Ignl -Ilist -c -o $@ $<
 
 clean:
