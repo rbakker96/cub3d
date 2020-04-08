@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/02/05 14:55:09 by rbakker        #+#    #+#                 #
-#    Updated: 2020/04/01 13:44:19 by roybakker     ########   odam.nl          #
+#    Created: 2020/02/05 14:55:09 by rbakker       #+#    #+#                  #
+#    Updated: 2020/04/08 21:26:45 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,9 @@ SOURCES	= 	main.c \
 			parse/parse_map_input.c \
 			parse/parse_texture_input.c \
 			parse/parse.c \
-			parse/save_map.c \
-			parse/validate_corners.c \
-			parse/validate_map.c \
 			parse/validate_general_input.c \
 			parse/validate_read_lines.c \
+			parse/flood_fill_map_check.c \
 			render/render.c \
 			render/camera_calc.c \
 			render/direction_calc.c \
@@ -46,7 +44,6 @@ SOURCES	= 	main.c \
 			texture/texture_calc.c \
 			texture/tex_x.c \
 			texture/wall_x.c \
-			sprites/malloc_space.c \
 			sprites/sort_sprites.c \
 			sprites/sprite_dimensions.c \
 			sprites/sprite_position.c \
@@ -80,6 +77,7 @@ $(NAME): $(OBJECTS)
 	@echo "$(ORANGE)Creating on miniRT...			$(WHITE)"
 	@$(COMPILE) -Lmlx -lmlx -Lgnl -lgnl -Llist -llist -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME) $(OBJECTS)
 	@echo "$(GREEN)Succesfuly creating exe 'cube3d'"
+	@mv mlx/libmlx.dylib .
 
 %.o: %.c
 	@echo "$(GREY)Compiling...				$(WHITE)$<"

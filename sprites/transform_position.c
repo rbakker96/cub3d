@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/30 12:05:28 by roybakker      #+#    #+#                */
-/*   Updated: 2020/04/02 14:09:52 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/30 12:05:28 by roybakker     #+#    #+#                 */
+/*   Updated: 2020/04/08 13:40:20 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 void		transform_sprite_position(t_data *data, int i)
 {
-	SPRITE_X = data->texture_data.sprite_texture.sprite_position[i].position.x - POS_X;
-	SPRITE_Y = data->texture_data.sprite_texture.sprite_position[i].position.y - POS_Y;
-	MATRIX = 1.0 / (PLANE_X * DIR_Y - DIR_X * PLANE_Y);
-	TRANSFORM_X = MATRIX * (DIR_Y * SPRITE_X - DIR_X * SPRITE_Y);
-	TRANSFORM_Y = MATRIX * (-PLANE_Y * SPRITE_X + PLANE_X * SPRITE_Y);
-	SPLITSCREEN_X = ((WIDTH / 2) * (1 + TRANSFORM_X / TRANSFORM_Y));
+	data->sprites.sprite_x = data->sprite.pos[i].pos.x - data->raycast.pos.x;
+	data->sprites.sprite_y = data->sprite.pos[i].pos.y - data->raycast.pos.y;
+	data->sprites.matrix = 1.0 / (data->raycast.plane.x * data->raycast.dir.y -
+								data->raycast.dir.x * data->raycast.plane.y);
+	data->sprites.transform_x = data->sprites.matrix * (data->raycast.dir.y *
+								data->sprites.sprite_x - data->raycast.dir.x *
+								data->sprites.sprite_y);
+	data->sprites.transform_y = data->sprites.matrix * (-data->raycast.plane.y *
+								data->sprites.sprite_x + data->raycast.plane.x *
+								data->sprites.sprite_y);
+	data->sprites.spritescreen = ((data->res.x / 2) *
+								(1 + data->sprites.transform_x /
+								data->sprites.transform_y));
 }

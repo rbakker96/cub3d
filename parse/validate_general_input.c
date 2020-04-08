@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/09 16:33:17 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 17:23:32 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/09 16:33:17 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 10:33:37 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,16 @@ t_color	color_value(char *input_str, char **input_array)
 
 void	validate_general_input(t_data *data)
 {
-	if (data->texture_data.east_texture.validation == 0 ||
-		data->texture_data.north_texture.validation == 0 ||
-		data->texture_data.south_texture.validation == 0 ||
-		data->texture_data.sprite_texture.validation == 0 ||
-		data->texture_data.west_texture.validation == 0)
+	if (data->east.validation == 0 ||
+		data->north.validation == 0 ||
+		data->south.validation == 0 ||
+		data->sprite.validation == 0 ||
+		data->west.validation == 0)
 		parse_error(27, 0, 0);
-	if (data->color.floor_color.validation == 0 ||
-		data->color.ceilling_color.validation == 0)
+	if (data->color.floor.validation == 0 ||
+		data->color.ceilling.validation == 0)
 		parse_error(28, 0, 0);
-	if (data->resolution.validation == 0)
+	if (data->res.validation == 0)
 		parse_error(29, 0, 0);
 	else
 		return ;

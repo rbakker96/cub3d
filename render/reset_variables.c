@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/09 16:52:21 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 10:29:31 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/09 16:52:21 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 10:38:15 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 void	reset_variables(t_data *data)
 {
-	POS_X = 0;
-	POS_Y = 0;
-	MAP_X = 0;
-	MAP_Y = 0;
-	DIR_X = 0;
-	DIR_Y = 0;
-	PLANE_X = 0;
-	PLANE_Y = 0;
-	SIDE_DIS_X = 0;
-	SIDE_DIS_Y = 0;
-	DELTA_DIS_X = 0;
-	DELTA_DIS_Y = 0;
-	STEP_X = 0;
-	STEP_Y = 0;
-	RAY_DIR_X = 0;
-	RAY_DIR_Y = 0;
-	CAM_X = 0;
-	WALL_DIS = 0;
-	SIDE = 0;
+	data->raycast.pos.x = 0;
+	data->raycast.pos.y = 0;
+	data->raycast.map.x = 0;
+	data->raycast.map.y = 0;
+	data->raycast.dir.x = 0;
+	data->raycast.dir.y = 0;
+	data->raycast.plane.x = 0;
+	data->raycast.plane.y = 0;
+	data->raycast.side_dis.x = 0;
+	data->raycast.side_dis.y = 0;
+	data->raycast.delta_dis.x = 0;
+	data->raycast.delta_dis.y = 0;
+	data->raycast.step.x = 0;
+	data->raycast.step.y = 0;
+	data->raycast.ray_dir.x = 0;
+	data->raycast.ray_dir.y = 0;
+	data->raycast.camera_x = 0;
+	data->raycast.wall_dis = 0;
+	data->raycast.side = 0;
 }

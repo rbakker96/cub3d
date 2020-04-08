@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/06 14:44:57 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 10:28:35 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/06 14:44:57 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 10:36:57 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ void		initialize_plane(t_data *data)
 {
 	if (data->map.spawning_point == 'W')
 	{
-		PLANE_X = 0;
-		PLANE_Y = -0.66;
+		data->raycast.plane.x = 0;
+		data->raycast.plane.y = -0.66;
 	}
 	if (data->map.spawning_point == 'E')
 	{
-		PLANE_X = 0;
-		PLANE_Y = 0.66;
+		data->raycast.plane.x = 0;
+		data->raycast.plane.y = 0.66;
 	}
 	if (data->map.spawning_point == 'N')
 	{
-		PLANE_X = 0.66;
-		PLANE_Y = 0;
+		data->raycast.plane.x = 0.66;
+		data->raycast.plane.y = 0;
 	}
 	if (data->map.spawning_point == 'S')
 	{
-		PLANE_X = -0.66;
-		PLANE_Y = 0;
+		data->raycast.plane.x = -0.66;
+		data->raycast.plane.y = 0;
 	}
 }

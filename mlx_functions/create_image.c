@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/25 19:05:46 by roybakker      #+#    #+#                */
-/*   Updated: 2020/03/25 20:15:47 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/25 19:05:46 by roybakker     #+#    #+#                 */
+/*   Updated: 2020/04/07 20:37:24 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ void	pixel_to_image(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 
-	if (data->mlx_data.image_one.usage == off_screen)
-		dst = ADDRES_ONE + (y * LL_ONE + x * (BPP_ONE / 8));
+	if (data->image_one.usage == off_screen)
+		dst = data->image_one.addr + (y * data->image_one.line_len + x *
+													(data->image_one.bpp / 8));
 	else
-		dst = ADDRES_TWO + (y * LL_TWO + x * (BPP_TWO / 8));
+		dst = data->image_two.addr + (y * data->image_two.line_len + x *
+													(data->image_two.bpp / 8));
 	*(unsigned int*)dst = color;
 }

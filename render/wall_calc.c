@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/06 14:42:10 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/27 14:09:01 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/06 14:42:10 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 11:18:39 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,32 @@ void		identify_wall(t_data *data)
 {
 	while (1)
 	{
-		if (SIDE_DIS_X < SIDE_DIS_Y)
+		if (data->raycast.side_dis.x < data->raycast.side_dis.y)
 		{
-			SIDE_DIS_X = SIDE_DIS_X + DELTA_DIS_X;
-			MAP_X = MAP_X + STEP_X;
-			SIDE = 0;
+			data->raycast.side_dis.x = data->raycast.side_dis.x +
+													data->raycast.delta_dis.x;
+			data->raycast.map.x = data->raycast.map.x + data->raycast.step.x;
+			data->raycast.side = 0;
 		}
 		else
 		{
-			SIDE_DIS_Y = SIDE_DIS_Y + DELTA_DIS_Y;
-			MAP_Y = MAP_Y + STEP_Y;
-			SIDE = 1;
+			data->raycast.side_dis.y = data->raycast.side_dis.y +
+													data->raycast.delta_dis.y;
+			data->raycast.map.y = data->raycast.map.y + data->raycast.step.y;
+			data->raycast.side = 1;
 		}
-		if (data->map.map[MAP_Y][MAP_X] == '1')
+		if (data->map.map[data->raycast.map.y][data->raycast.map.x] == '1')
 			break ;
 	}
 }
 
 void		prep_wall_distance(t_data *data, int x)
 {
-	if (SIDE == 0)
-		WALL_DIS = (MAP_X - POS_X + (1 - STEP_X) / 2) / RAY_DIR_X;
+	if (data->raycast.side == 0)
+		data->raycast.wall_dis = (data->raycast.map.x - data->raycast.pos.x +
+					(1 - data->raycast.step.x) / 2) / data->raycast.ray_dir.x;
 	else
-		WALL_DIS = (MAP_Y - POS_Y + (1 - STEP_Y) / 2) / RAY_DIR_Y;
-	data->texture_data.sprite_texture.distance[x] = WALL_DIS;
+		data->raycast.wall_dis = (data->raycast.map.y - data->raycast.pos.y +
+					(1 - data->raycast.step.y) / 2) / data->raycast.ray_dir.y;
+	data->sprite.dis[x] = data->raycast.wall_dis;
 }

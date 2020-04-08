@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/30 14:00:44 by roybakker      #+#    #+#                */
-/*   Updated: 2020/04/02 14:09:37 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/30 14:00:44 by roybakker     #+#    #+#                 */
+/*   Updated: 2020/04/08 13:45:50 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,29 @@ void		sprite_dimensions(t_data *data)
 {
 	sprite_height(data);
 	sprite_width(data);
-	STRIPE = DRAW_START_X;
+	data->sprites.stripe = data->sprites.draw_start_x;
 }
 
 void		sprite_height(t_data *data)
 {
-	SPRITE_HEIGHT = abs((int)(HEIGHT / TRANSFORM_Y));
-	DRAW_START_Y = -SPRITE_HEIGHT / 2 + HEIGHT / 2;
-	if (DRAW_START_Y < 0)
-		DRAW_START_Y = 0;
-	DRAW_END_Y = SPRITE_HEIGHT / 2 + HEIGHT / 2;
-	if (DRAW_END_Y > HEIGHT)
-		DRAW_END_Y = HEIGHT - 1;
+	data->sprites.height = abs((int)(data->res.y / data->sprites.transform_y));
+	data->sprites.draw_start_y = -data->sprites.height / 2 + data->res.y / 2;
+	if (data->sprites.draw_start_y < 0)
+		data->sprites.draw_start_y = 0;
+	data->sprites.draw_end_y = data->sprites.height / 2 + data->res.y / 2;
+	if (data->sprites.draw_end_y > data->res.y)
+		data->sprites.draw_end_y = data->res.y - 1;
 }
 
 void		sprite_width(t_data *data)
 {
-	SPRITE_WIDTH = abs((int)(HEIGHT / TRANSFORM_Y));
-	DRAW_START_X = -SPRITE_WIDTH / 2 + SPLITSCREEN_X;
-	if (DRAW_START_X < 0)
-		DRAW_START_X = 0;
-	DRAW_END_X = SPRITE_WIDTH / 2 + SPLITSCREEN_X;
-	if (DRAW_END_X >= WIDTH)
-		DRAW_END_X = WIDTH - 1;
+	data->sprites.width = abs((int)(data->res.y / data->sprites.transform_y));
+	data->sprites.draw_start_x = -data->sprites.width / 2 +
+												data->sprites.spritescreen;
+	if (data->sprites.draw_start_x < 0)
+		data->sprites.draw_start_x = 0;
+	data->sprites.draw_end_x = data->sprites.width / 2 +
+													data->sprites.spritescreen;
+	if (data->sprites.draw_end_x >= data->res.x)
+		data->sprites.draw_end_x = data->res.x - 1;
 }

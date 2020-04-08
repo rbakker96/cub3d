@@ -5,71 +5,47 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/09 16:22:51 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/31 15:50:51 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/09 16:22:51 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 21:34:04 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
-void		validate_map(t_data *data, int x, int y)
+char		*join_map_lines(char *map, char *line, int i, int x)
 {
-	int map_size;
+	char	*complete_map;
 
-	map_size = line_count(data->map.map);
-	check_top_line(data, x, y);
-	y++;
-	while (y < (map_size - 1))
+	x = ft_strlen(map);
+	i = ft_strlen(line);
+	complete_map = malloc(sizeof(char) * (i + x + 2));
+	if (!complete_map)
+		parse_error(35, &map, &line);
+	x = 0;
+	i = 0;
+	while (map[i] != '\0')
 	{
-		check_middel_lines(data, 0, y);
-		y++;
+		complete_map[i] = map[i];
+		i++;
 	}
-	check_bottom_line(data, 0, y);
-	check_start_position_and_spawning(data);
-}
-
-void		create_map(char *line, t_data *data)
-{
-	char	*new_map;
-	int		len_map_addition;
-	int		ofset;
-
-	ofset = line_ofset(line);
-	len_map_addition = ft_strlen(line);
-	new_map = malloc(sizeof(char) * len_map_addition + 1);
-	if (!new_map)
-		free_machine(line, 0);
-	new_map = (ofset) ? ofset_present(line, new_map, ofset, 0) :
-						ofset_not_present(line, new_map, 0, 0);
-	data->map.map_input = new_map;
-}
-
-void		update_map(char *line, t_data *data, int x)
-{
-	char	*updated_map;
-	int		len_current_map;
-	int		len_map_addition;
-	int		ofset;
-
-	len_current_map = ft_strlen(data->map.map_input);
-	len_map_addition = ft_strlen(line);
-	ofset = line_ofset(line);
-	updated_map = malloc(sizeof(char) * len_current_map + len_map_addition + 2);
-	if (!updated_map)
-		free_machine(line, 0);
-	while (data->map.map_input[x] != '\0')
+	complete_map[i] = '\n';
+	i++;
+	while (line[x] != '\0')
 	{
-		updated_map[x] = data->map.map_input[x];
+		complete_map[i + x] = line[x];
 		x++;
 	}
-	updated_map[x] = '\n';
-	x++;
-	ofset = (ofset) ? ofset + x : 0;
-	updated_map = (ofset) ? ofset_present(line, updated_map, ofset, x) :
-							ofset_not_present(line, updated_map, 0, x);
+	complete_map[i + x] = '\0';
+	return (complete_map);
+}
+
+void		update_map(char *line, t_data *data)
+{
+	char	*updated_map;
+
+	updated_map = join_map_lines(data->map.map_input, line, 0, 0);
 	free(data->map.map_input);
 	data->map.map_input = updated_map;
-	data->map.map = ft_split(updated_map, '\n');
 }
 
 void		map_input(t_data *data, int fd)
@@ -87,10 +63,8 @@ void		map_input(t_data *data, int fd)
 			free(line);
 		if (empty_line(line) || !map_line(line))
 			break ;
-		update_map(line, data, 0);
+		update_map(line, data);
 	}
-	validate_map(data, 0, 0);
-	count_sprites(data);
-	malloc_distance_array(data);
-	malloc_sprites_array(data);
+	data->map.map = ft_split(data->map.map_input, '\n');
+	floodfill_algorithm(data);
 }

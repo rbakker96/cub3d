@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/03 15:23:10 by rbakker        #+#    #+#                */
-/*   Updated: 2020/04/01 10:41:47 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/03 15:23:10 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 21:37:33 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ void		pre_calculations(t_data *data)
 {
 	reset_variables(data);
 	initialize_plane(data);
-	start_position(data);
-	view_direction(data);
-	set_floor_and_ceilling_dcolor(data);
+	set_start_position(data);
+	set_view_direction(data);
+	set_floor_and_ceilling_color(data);
+	set_prep_distance_array(data);
+	set_sprites_array(data);
 	render_screen(data, 0);
 }
 
@@ -36,25 +38,25 @@ void		calculate_variables(t_data *data, int x)
 
 void		render_screen(t_data *data, int x)
 {
-	while (x < WIDTH)
+	while (x < data->res.x)
 	{
 		calculate_variables(data, x);
 		draw_screen(data, x);
 		x++;
 	}
 	cast_sprites(data, 0);
-	if (data->mlx_data.image_one.usage == off_screen)
+	if (data->image_one.usage == off_screen)
 	{
-		mlx_put_image_to_window(data->mlx_data.mlx, data->mlx_data.mlx_win,
-								data->mlx_data.image_one.img, 0, 0);
-		data->mlx_data.image_one.usage = on_screen;
-		data->mlx_data.image_two.usage = off_screen;
+		mlx_put_image_to_window(data->mlx, data->mlx_win, data->image_one.img,
+																		0, 0);
+		data->image_one.usage = on_screen;
+		data->image_two.usage = off_screen;
 	}
 	else
 	{
-		mlx_put_image_to_window(data->mlx_data.mlx, data->mlx_data.mlx_win,
-								data->mlx_data.image_two.img, 0, 0);
-		data->mlx_data.image_two.usage = on_screen;
-		data->mlx_data.image_one.usage = off_screen;
+		mlx_put_image_to_window(data->mlx, data->mlx_win, data->image_two.img,
+																		0, 0);
+		data->image_two.usage = on_screen;
+		data->image_one.usage = off_screen;
 	}
 }

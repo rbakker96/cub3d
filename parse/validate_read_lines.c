@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/09 16:34:18 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/31 15:27:27 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/09 16:34:18 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/07 18:29:54 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,3 @@ int		map_line(char *line)
 	}
 	return (1);
 }
-
-

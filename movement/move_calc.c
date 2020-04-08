@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/10 11:49:36 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/16 16:33:10 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/10 11:49:36 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 11:53:25 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 
 void	move_forward(t_data *data)
 {
-	if (MAP[(int)POS_Y][(int)(POS_X + DIR_X * 0.06)] != '1')
-		POS_X += DIR_X * 0.06;
-	if (MAP[(int)(POS_Y + DIR_Y * 0.06)][(int)POS_X] != '1')
-		POS_Y += DIR_Y * 0.06;
+	int tmp;
+
+	tmp = data->raycast.pos.x + data->raycast.dir.x * 0.06;
+	if (MAP[(int)data->raycast.pos.y][tmp] != '1')
+		data->raycast.pos.x += data->raycast.dir.x * 0.06;
+	tmp = data->raycast.pos.y + data->raycast.dir.y * 0.06;
+	if (MAP[tmp][(int)data->raycast.pos.x] != '1')
+		data->raycast.pos.y += data->raycast.dir.y * 0.06;
 }
 
 void	move_backward(t_data *data)
 {
-	if (MAP[(int)POS_Y][(int)(POS_X - DIR_X * 0.06)] != '1')
-		POS_X -= DIR_X * 0.06;
-	if (MAP[(int)(POS_Y - DIR_Y * 0.06)][(int)POS_X] != '1')
-		POS_Y -= DIR_Y * 0.06;
+	int tmp;
+
+	tmp = data->raycast.pos.x - data->raycast.dir.x * 0.06;
+	if (MAP[(int)data->raycast.pos.y][tmp] != '1')
+		data->raycast.pos.x -= data->raycast.dir.x * 0.06;
+	tmp = data->raycast.pos.y - data->raycast.dir.y * 0.06;
+	if (MAP[tmp][(int)data->raycast.pos.x] != '1')
+		data->raycast.pos.y -= data->raycast.dir.y * 0.06;
 }
 
 /*
@@ -36,14 +44,17 @@ void	move_backward(t_data *data)
 
 void	move_left(t_data *data)
 {
-	t_2d_double turn_vec;
+	t_2d_double	turn_vec;
+	int			tmp;
 
-	turn_vec.x = DIR_X * 0 - DIR_Y * -1;
-	turn_vec.y = DIR_X * -1 + DIR_Y * 0;
-	if (MAP[(int)POS_Y][(int)(POS_X + turn_vec.x * 0.06)] != '1')
-		POS_X += turn_vec.x * 0.06;
-	if (MAP[(int)(POS_Y + turn_vec.y * 0.06)][(int)POS_X] != '1')
-		POS_Y += turn_vec.y * 0.06;
+	turn_vec.x = data->raycast.dir.x * 0 - data->raycast.dir.y * -1;
+	turn_vec.y = data->raycast.dir.x * -1 + data->raycast.dir.y * 0;
+	tmp = data->raycast.pos.x + turn_vec.x * 0.06;
+	if (MAP[(int)data->raycast.pos.y][tmp] != '1')
+		data->raycast.pos.x += turn_vec.x * 0.06;
+	tmp = data->raycast.pos.y + turn_vec.y * 0.06;
+	if (MAP[tmp][(int)data->raycast.pos.x] != '1')
+		data->raycast.pos.y += turn_vec.y * 0.06;
 }
 
 /*
@@ -54,12 +65,15 @@ void	move_left(t_data *data)
 
 void	move_right(t_data *data)
 {
-	t_2d_double turn_vec;
+	t_2d_double	turn_vec;
+	int			tmp;
 
-	turn_vec.x =  DIR_X * 0 - DIR_Y * 1;
-	turn_vec.y = DIR_X * 1 + DIR_Y * 0;
-	if (MAP[(int)POS_Y][(int)(POS_X + turn_vec.x * 0.06)] != '1')
-		POS_X += turn_vec.x * 0.06;
-	if (MAP[(int)(POS_Y + turn_vec.y * 0.06)][(int)POS_X] != '1')
-		POS_Y += turn_vec.y * 0.06;
+	turn_vec.x = data->raycast.dir.x * 0 - data->raycast.dir.y * 1;
+	turn_vec.y = data->raycast.dir.x * 1 + data->raycast.dir.y * 0;
+	tmp = data->raycast.pos.x + turn_vec.x * 0.06;
+	if (MAP[(int)data->raycast.pos.y][tmp] != '1')
+		data->raycast.pos.x += turn_vec.x * 0.06;
+	tmp = data->raycast.pos.y + turn_vec.y * 0.06;
+	if (MAP[tmp][(int)data->raycast.pos.x] != '1')
+		data->raycast.pos.y += turn_vec.y * 0.06;
 }

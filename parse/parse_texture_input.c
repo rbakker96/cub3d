@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/26 11:37:17 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 17:21:13 by roybakker     ########   odam.nl         */
+/*   Created: 2020/02/26 11:37:17 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 10:08:57 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,53 +16,53 @@ void	parse_north(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
 		parse_error(14, input_data, 0);
-	if (data->texture_data.north_texture.validation == present)
+	if (data->north.validation == present)
 		parse_error(15, input_data, 0);
 	else
-		data->texture_data.north_texture.validation = present;
-	data->texture_data.north_texture.path = input_data[1];
+		data->north.validation = present;
+	data->north.path = input_data[1];
 }
 
 void	parse_south(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
 		parse_error(16, input_data, 0);
-	if (data->texture_data.south_texture.validation == present)
+	if (data->south.validation == present)
 		parse_error(17, input_data, 0);
 	else
-		data->texture_data.south_texture.validation = present;
-	data->texture_data.south_texture.path = input_data[1];
+		data->south.validation = present;
+	data->south.path = input_data[1];
 }
 
 void	parse_east(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
 		parse_error(18, input_data, 0);
-	if (data->texture_data.east_texture.validation == present)
+	if (data->east.validation == present)
 		parse_error(19, input_data, 0);
 	else
-		data->texture_data.east_texture.validation = present;
-	data->texture_data.east_texture.path = input_data[1];
+		data->east.validation = present;
+	data->east.path = input_data[1];
 }
 
 void	parse_west(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
 		parse_error(20, input_data, 0);
-	if (data->texture_data.west_texture.validation == present)
+	if (data->west.validation == present)
 		parse_error(21, input_data, 0);
 	else
-		data->texture_data.west_texture.validation = present;
-	data->texture_data.west_texture.path = input_data[1];
+		data->west.validation = present;
+	data->west.path = input_data[1];
 }
 
 void	parse_sprite(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
 		parse_error(22, input_data, 0);
-	if (data->texture_data.sprite_texture.validation == present)
+	if (data->sprite.validation == present)
 		parse_error(23, input_data, 0);
 	else
-		data->texture_data.sprite_texture.validation = present;
-	data->texture_data.sprite_texture.path = input_data[1];
+		data->sprite.validation = present;
+	data->sprite.path = input_data[1];
 }

@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/09 16:30:30 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/27 12:01:42 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/09 16:30:30 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 11:25:21 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,36 @@
 
 void	reset_validation(t_data *data)
 {
-	data->color.ceilling_color.validation = 0;
-	data->texture_data.east_texture.validation = 0;
-	data->color.floor_color.validation = 0;
-	data->texture_data.north_texture.validation = 0;
-	data->resolution.validation = 0;
-	data->texture_data.south_texture.validation = 0;
-	data->texture_data.sprite_texture.validation = 0;
-	data->texture_data.west_texture.validation = 0;
+	data->color.ceilling.validation = 0;
+	data->east.validation = 0;
+	data->color.floor.validation = 0;
+	data->north.validation = 0;
+	data->res.validation = 0;
+	data->south.validation = 0;
+	data->sprite.validation = 0;
+	data->west.validation = 0;
 }
 
 void	reset_texture(t_data *data)
 {
-	data->texture_data.east_texture.path = 0;
-	data->texture_data.north_texture.path = 0;
-	data->texture_data.south_texture.path = 0;
-	data->texture_data.west_texture.path = 0;
-	data->texture_data.sprite_texture.distance = 0;
+	data->east.path = 0;
+	data->north.path = 0;
+	data->south.path = 0;
+	data->west.path = 0;
+	data->sprite.dis = 0;
 	data->map.spawning_point = 0;
 }
 
 void	reset_color(t_data *data)
 {
-	data->color.floor_color.r = 0;
-	data->color.floor_color.g = 0;
-	data->color.floor_color.b = 0;
-	data->color.ceilling_color.r = 0;
-	data->color.ceilling_color.g = 0;
-	data->color.ceilling_color.b = 0;
-	data->resolution.x = 0;
-	data->resolution.y = 0;
+	data->color.floor.r = 0;
+	data->color.floor.g = 0;
+	data->color.floor.b = 0;
+	data->color.ceilling.r = 0;
+	data->color.ceilling.g = 0;
+	data->color.ceilling.b = 0;
+	data->res.x = 0;
+	data->res.y = 0;
 }
 
 void	reset_input_struct(t_data *data)

@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/26 10:44:33 by rbakker        #+#    #+#                */
-/*   Updated: 2020/04/01 19:33:51 by roybakker     ########   odam.nl         */
+/*   Created: 2020/02/26 10:44:33 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 21:35:57 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,33 +113,17 @@ void		parse_sprite(t_data *data, char **input_data);
 /*
 ** parse_map_input.c
 */
-void		validate_map(t_data *data, int x, int y);
-void		create_map(char *line, t_data *data);
-void		update_map(char *line, t_data *data, int x);
+char		*join_map_lines(char *map, char *line, int i, int x);
+void		update_map(char *line, t_data *data);
 void		map_input(t_data *data, int fd);
 
 /*
-** save_map.c
+** flood_fill_map_check.c
 */
-int			line_ofset(char *line);
-char		*ofset_not_present(char *line, char *new_string, int x, int y);
-char		*ofset_present(char *line, char *new_string, int ofset, int y);
-
-/*
-** validate_corners.c
-*/
-void		coner_type_one(t_data *data, int i, int x, int y);
-void		coner_type_two(t_data *data, int i, int x, int y);
-int			coner_type_three(t_data *data, int i, int x, int y);
-int			coner_type_four(t_data *data, int i, int x, int y);
-
-/*
-** validate_map.c
-*/
-void		check_top_line(t_data *data, int x, int y);
-void		check_middel_lines(t_data *data, int x, int y);
-void		check_bottom_line(t_data *data, int x, int y);
-void		check_start_position_and_spawning(t_data *data);
+void		floodfill_algorithm(t_data *data);
+void		flood_map(char **map, char spawning_point, int x, int y);
+t_2d_int	position(t_data *data, int x, int y);
+char		check_spawning_point(t_data *data);
 
 /*
 ** validate_read_lines.c
@@ -171,7 +155,7 @@ void		render_screen(t_data *data, int x);
 /*
 ** set_colors.c
 */
-void		set_floor_and_ceilling_dcolor(t_data *data);
+void		set_floor_and_ceilling_color(t_data *data);
 uint32_t	create_rgb(int r, int g, int b);
 
 /*
@@ -182,7 +166,7 @@ void		camera_x(t_data *data, int x);
 /*
 ** direction_calc.c
 */
-void		view_direction(t_data *data);
+void		set_view_direction(t_data *data);
 void		ray_direction(t_data *data);
 void		step_size(t_data *data);
 
@@ -191,6 +175,7 @@ void		step_size(t_data *data);
 */
 void		delta_distance(t_data *data);
 void		side_distance(t_data *data);
+void		set_prep_distance_array(t_data *data);
 
 /*
 ** plane_calc.c
@@ -200,7 +185,7 @@ void		initialize_plane(t_data *data);
 /*
 ** position_calc.c
 */
-void		start_position(t_data *data);
+void		set_start_position(t_data *data);
 void		current_position(t_data *data);
 
 /*
@@ -286,26 +271,20 @@ void		west_texture(t_data *data, int x, int y);
 /*
 ** cast_sprite.c
 */
-void	cast_sprites(t_data *data, int i);
-void	calcualte_sprite_variables(t_data *data);
-
-/*
-** malloc_space.c
-*/
-void		count_sprites(t_data *data);
-void		malloc_distance_array(t_data *data);
-void		malloc_sprites_array(t_data *data);
+void		cast_sprites(t_data *data, int i);
+void		calcualte_sprite_variables(t_data *data);
 
 /*
 ** sprite_position.c
 */
 void		sprite_position_and_distance(t_data *data);
+void		sprite_distance(t_data *data, int i);
+void		set_sprites_array(t_data *data);
 
 /*
 ** sort_sprites.c
 */
 void		sort_sprites(t_data *data);
-void		sprite_distance(t_data *data, int i);
 
 /*
 ** transform_position.c

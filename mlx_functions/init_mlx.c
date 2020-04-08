@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/19 10:57:45 by roybakker      #+#    #+#                */
-/*   Updated: 2020/04/01 19:33:31 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/19 10:57:45 by roybakker     #+#    #+#                 */
+/*   Updated: 2020/04/08 11:42:53 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_mlx(t_data *data)
 {
-	MLX = mlx_init();
-	if (!MLX)
+	data->mlx = mlx_init();
+	if (!data->mlx)
 		parse_error(31, 0, 0);
 	open_window(data);
 	create_new_image(data);
@@ -26,29 +26,34 @@ void	init_mlx(t_data *data)
 
 void	open_window(t_data *data)
 {
-	WINDOW = mlx_new_window(MLX, HEIGHT, WIDTH, "Cub3d");
-	if (!WINDOW)
+	data->mlx_win = mlx_new_window(data->mlx, data->res.y, data->res.x,
+																	"Cub3d");
+	if (!data->mlx_win)
 		parse_error(32, 0, 0);
 }
 
 void	create_new_image(t_data *data)
 {
-	IMG_ONE = mlx_new_image(MLX, HEIGHT, WIDTH);
-	data->mlx_data.image_one.usage = off_screen;
-	if (!IMG_ONE)
-		parse_error(33 , 0, 0);
-	IMG_TWO = mlx_new_image(MLX, HEIGHT, WIDTH);
-	data->mlx_data.image_two.usage = off_screen;
-	if (!IMG_TWO)
-		parse_error(33 , 0, 0);
+	data->image_one.img = mlx_new_image(data->mlx, data->res.y, data->res.x);
+	data->image_one.usage = off_screen;
+	if (!data->image_one.img)
+		parse_error(33, 0, 0);
+	data->image_two.img = mlx_new_image(data->mlx, data->res.y, data->res.x);
+	data->image_two.usage = off_screen;
+	if (!data->image_two.img)
+		parse_error(33, 0, 0);
 }
 
 void	get_data_addres(t_data *data)
 {
-	ADDRES_ONE = mlx_get_data_addr(IMG_ONE, &BPP_ONE, &LL_ONE, &ENDIAN_ONE);
-	if (!ADDRES_ONE)
+	data->image_one.addr = mlx_get_data_addr(data->image_one.img,
+		&data->image_one.bpp, &data->image_one.line_len,
+		&data->image_one.endian);
+	if (!data->image_one.addr)
 		parse_error(34, 0, 0);
-	ADDRES_TWO = mlx_get_data_addr(IMG_TWO, &BPP_TWO, &LL_TWO, &ENDIAN_TWO);
-	if (!ADDRES_TWO)
+	data->image_two.addr = mlx_get_data_addr(data->image_two.img,
+							&data->image_two.bpp, &data->image_two.line_len,
+							&data->image_two.endian);
+	if (!data->image_two.addr)
 		parse_error(34, 0, 0);
 }

@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/26 11:17:13 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/27 12:02:41 by roybakker     ########   odam.nl         */
+/*   Created: 2020/02/26 11:17:13 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 20:41:01 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*table_3(int error_code)
 	if (error_code == 29)
 		return ("Error\nResolution value is missing\n");
 	if (error_code == 30)
-		return ("Error\nSpawning point missing\n");
+		return ("Error\nSpawning point missing or multiple spawning points\n");
 	if (error_code == 31)
 		return ("Error\nMLX failed to init\n");
 	if (error_code == 32)

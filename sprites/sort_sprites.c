@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/29 15:33:02 by roybakker      #+#    #+#                */
-/*   Updated: 2020/04/01 10:51:49 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/29 15:33:02 by roybakker     #+#    #+#                 */
+/*   Updated: 2020/04/08 11:18:07 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void		sort_sprites(t_data *data)
 {
-	t_sprite_position	temp;
+	t_sprite_pos		temp;
 	int					i;
 
 	i = 0;
-	while (i < data->texture_data.sprite_texture.amount_of_sprites)
+	while (i < data->sprite.amount)
 	{
-		if (data->texture_data.sprite_texture.sprite_position[i].distance < data->texture_data.sprite_texture.sprite_position[i + 1].distance)
+		if (data->sprite.pos[i].dis < data->sprite.pos[i + 1].dis)
 		{
-			temp = data->texture_data.sprite_texture.sprite_position[i];
-			data->texture_data.sprite_texture.sprite_position[i] = data->texture_data.sprite_texture.sprite_position[i + 1];
-			data->texture_data.sprite_texture.sprite_position[i + 1] = temp;
+			temp = data->sprite.pos[i];
+			data->sprite.pos[i] = data->sprite.pos[i + 1];
+			data->sprite.pos[i + 1] = temp;
 			i = 0;
 		}
 		else

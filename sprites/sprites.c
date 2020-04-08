@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/29 13:48:55 by roybakker      #+#    #+#                */
-/*   Updated: 2020/04/02 14:10:03 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/29 13:48:55 by roybakker     #+#    #+#                 */
+/*   Updated: 2020/04/08 21:24:51 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,24 @@ void	cast_sprites(t_data *data, int i)
 
 	sprite_position_and_distance(data);
 	sort_sprites(data);
-	while (i < SPRITE_AMOUNT)
+	while (i < data->sprite.amount)
 	{
 		calculate_sprite_variables(data, i);
-		while(STRIPE < DRAW_END_X)
+		while (data->sprites.stripe < data->sprites.draw_end_x)
 		{
-			TEX_X_SPRITE = (int)((256 * (STRIPE - (-SPRITE_WIDTH / 2 + SPLITSCREEN_X))
-							* TEX_WIDTH_SPRITE / SPRITE_WIDTH)) / 256;
-			y = DRAW_START_Y;
-			if (TRANSFORM_Y > 0 && STRIPE > 0 && STRIPE < WIDTH && TRANSFORM_Y < data->texture_data.sprite_texture.distance[STRIPE])
-				while (y < DRAW_END_Y)
+			data->sprites.tex_x = (int)((256 * (data->sprites.stripe -
+						(-data->sprites.width / 2 + data->sprites.spritescreen))
+						* data->sprite.res.y / data->sprites.width)) / 256;
+			y = data->sprites.draw_start_y;
+			if (data->sprites.transform_y > 0 && data->sprites.stripe > 0 &&
+				data->sprites.stripe < data->res.x && data->sprites.transform_y
+				< data->sprite.dis[data->sprites.stripe])
+				while (y < data->sprites.draw_end_y)
 				{
 					sprite_color(data, y);
 					y++;
 				}
-			STRIPE++;
+			data->sprites.stripe++;
 		}
 		i++;
 	}

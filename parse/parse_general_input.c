@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/26 11:28:13 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 10:22:55 by roybakker     ########   odam.nl         */
+/*   Created: 2020/02/26 11:28:13 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 20:26:26 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,38 +41,38 @@ void		parse_general_input(char *line, t_data *data)
 	free_array(input_data);
 }
 
-void	parse_resolution(t_data *data, char **input_data)
+void		parse_resolution(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 3)
 		parse_error(4, input_data, 0);
-	if (data->resolution.validation == present)
+	if (data->res.validation == present)
 		parse_error(5, input_data, 0);
 	else
-		data->resolution.validation = present;
-	data->resolution.x = ft_atoi(input_data[1]);
-	data->resolution.y = ft_atoi(input_data[2]);
+		data->res.validation = present;
+	data->res.x = ft_atoi(input_data[1]);
+	data->res.y = ft_atoi(input_data[2]);
 }
 
-void	parse_floor(t_data *data, char **input_data)
+void		parse_floor(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
 		parse_error(6, input_data, 0);
-	if (data->color.floor_color.validation == present)
+	if (data->color.floor.validation == present)
 		parse_error(7, input_data, 0);
 	else
-		data->color.floor_color.validation = present;
-	data->color.floor_color = color_value(input_data[1], input_data);
+		data->color.floor.validation = present;
+	data->color.floor = color_value(input_data[1], input_data);
 }
 
-void	parse_ceilling(t_data *data, char **input_data)
+void		parse_ceilling(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
 		parse_error(8, input_data, 0);
-	if (data->color.ceilling_color.validation == present)
+	if (data->color.ceilling.validation == present)
 		parse_error(9, input_data, 0);
 	else
-		data->color.ceilling_color.validation = present;
-	data->color.ceilling_color = color_value(input_data[1], input_data);
+		data->color.ceilling.validation = present;
+	data->color.ceilling = color_value(input_data[1], input_data);
 }
 
 void		general_input(t_data *data, int fd)
@@ -94,7 +94,7 @@ void		general_input(t_data *data, int fd)
 			parse_general_input(line, data);
 	}
 	if (map_line(line))
-		create_map(line, data);
+		data->map.map_input = ft_strdup(line);
 	free(line);
 	validate_general_input(data);
 }

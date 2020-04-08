@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/06 14:02:51 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/31 14:30:04 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/06 14:02:51 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 13:31:53 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@
 # define KEYPRESS 2
 # define KEYRELEASE 3
 # define DESTROY 17
-
-# define PRESS_MASK 1L<<0
-# define RELEASE_MASK 1L<<1
 
 /*
 **------------------------------KEY CODES--------------------------------------
@@ -50,7 +47,7 @@
 # define ADDRES_ONE data->mlx_data.image_one.addr
 # define ADDRES_TWO data->mlx_data.image_two.addr
 
-# define BPP_ONE data->mlx_data.image_one.bits_per_pixel
+# define BPP_ONE data->image_one.bpp
 # define BPP_TWO data->mlx_data.image_two.bits_per_pixel
 
 # define LL_ONE data->mlx_data.image_one.line_length
@@ -63,10 +60,15 @@
 **----------------------------------DATA----------------------------------------
 */
 
-# define WIDTH data->resolution.x
-# define HEIGHT data->resolution.y
+# define WIDTH data->res.x
+# define HEIGHT data->res.y
 
 # define MAP data->map.map
+# define FLOODFILL_MAP data->map.floodfill_map
+
+# define MAP_SIZE data->map.map_size
+
+# define SPAWNING_POINT data->map.spawning_point
 
 /*
 **------------------------------RAY CASTING-------------------------------------
@@ -159,15 +161,15 @@
 # define ENDIAN_west data->texture_data.west_texture.image.endian
 # define ENDIAN_south data->texture_data.south_texture.image.endian
 
-# define TEX_HEIGHT_north data->texture_data.north_texture.tex_resolution.x
-# define TEX_HEIGHT_east data->texture_data.east_texture.tex_resolution.x
-# define TEX_HEIGHT_west data->texture_data.west_texture.tex_resolution.x
-# define TEX_HEIGHT_south data->texture_data.south_texture.tex_resolution.x
+# define TEX_HEIGHT_north data->texture_data.north_texture.tex_res.x
+# define TEX_HEIGHT_east data->texture_data.east_texture.tex_res.x
+# define TEX_HEIGHT_west data->texture_data.west_texture.tex_res.x
+# define TEX_HEIGHT_south data->texture_data.south_texture.tex_res.x
 
-# define TEX_WIDTH_north data->texture_data.north_texture.tex_resolution.y
-# define TEX_WIDTH_east data->texture_data.east_texture.tex_resolution.y
-# define TEX_WIDTH_west data->texture_data.west_texture.tex_resolution.y
-# define TEX_WIDTH_south data->texture_data.south_texture.tex_resolution.y
+# define TEX_WIDTH_north data->texture_data.north_texture.tex_res.y
+# define TEX_WIDTH_east data->texture_data.east_texture.tex_res.y
+# define TEX_WIDTH_west data->texture_data.west_texture.tex_res.y
+# define TEX_WIDTH_south data->texture_data.south_texture.tex_res.y
 
 # define WALL_X_north data->texture_data.north_texture.wallX
 # define WALL_X_east data->texture_data.east_texture.wallX
@@ -211,38 +213,42 @@
 
 # define PATH_SPRITE data->texture_data.sprite_texture.path
 
-# define PATH_HEIGHT data->texture_data.sprite_texture.tex_resolution.x
-# define PATH_WIDTH data->texture_data.sprite_texture.tex_resolution.y
+# define PATH_HEIGHT data->texture_data.sprite_texture.tex_res.x
+# define PATH_WIDTH data->texture_data.sprite_texture.tex_res.y
 
-# define TEX_HEIGHT_SPRITE data->texture_data.sprite_texture.sprite_resolution.x
-# define TEX_WIDTH_SPRITE data->texture_data.sprite_texture.sprite_resolution.y
+# define TEX_HEIGHT_SPRITE data->texture_data.sprite_texture.sprite_res.x
+# define TEX_WIDTH_SPRITE data->texture_data.sprite_texture.sprite_res.y
 
 # define SPRITE_AMOUNT data->texture_data.sprite_texture.amount_of_sprites
 
-# define SPRITE_X data->texture_data.sprite_texture.spriteX
-# define SPRITE_Y data->texture_data.sprite_texture.spriteY
+# define SPRITE_X data->texture_data.sprite_texture.calc.spriteX
+# define SPRITE_Y data->texture_data.sprite_texture.calc.spriteY
 
-# define MATRIX data->texture_data.sprite_texture.matrix
+# define MATRIX data->texture_data.sprite_texture.calc.matrix
 
-# define TRANSFORM_X data->texture_data.sprite_texture.transformX
-# define TRANSFORM_Y data->texture_data.sprite_texture.transformY
+# define TRANSFORM_X data->texture_data.sprite_texture.calc.transformX
+# define TRANSFORM_Y data->texture_data.sprite_texture.calc.transformY
 
-# define SPLITSCREEN_X data->texture_data.sprite_texture.splitscreenX
+# define SPLITSCREEN_X data->texture_data.sprite_texture.calc.splitscreenX
 
-# define SPRITE_HEIGHT data->texture_data.sprite_texture.sprite_height
-# define SPRITE_WIDTH data->texture_data.sprite_texture.sprite_width
+# define SPRITE_HEIGHT data->texture_data.sprite_texture.calc.sprite_height
+# define SPRITE_WIDTH data->texture_data.sprite_texture.calc.sprite_width
 
-# define DRAW_START_X data->texture_data.sprite_texture.draw_start_x
-# define DRAW_START_Y data->texture_data.sprite_texture.draw_start_y
+# define DRAW_START_X data->texture_data.sprite_texture.calc.draw_start_x
+# define DRAW_START_Y data->texture_data.sprite_texture.calc.draw_start_y
 
-# define DRAW_END_X data->texture_data.sprite_texture.draw_end_x
-# define DRAW_END_Y data->texture_data.sprite_texture.draw_end_y
+# define DRAW_END_X data->texture_data.sprite_texture.calc.draw_end_x
+# define DRAW_END_Y data->texture_data.sprite_texture.calc.draw_end_y
 
-# define STRIPE data->texture_data.sprite_texture.stripe
+# define STRIPE data->texture_data.sprite_texture.calc.stripe
 
-# define TEX_X_SPRITE data->texture_data.sprite_texture.texX_sprite
-# define TEX_Y_SPRITE data->texture_data.sprite_texture.texY_sprite
+# define TEX_X_SPRITE data->texture_data.sprite_texture.calc.texX_sprite
+# define TEX_Y_SPRITE data->texture_data.sprite_texture.calc.texY_sprite
 
 # define SPRITE_COLOR data->texture_data.sprite_texture.color
+
+# define SPRITE_POS data->texture_data.sprite_texture.sprite_position
+
+# define SPRITE_DISTANCE data->texture_data.sprite_texture.distance
 
 #endif

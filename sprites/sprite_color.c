@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/04/01 11:51:16 by roybakker      #+#    #+#                */
-/*   Updated: 2020/04/02 14:10:17 by roybakker     ########   odam.nl         */
+/*   Created: 2020/04/01 11:51:16 by roybakker     #+#    #+#                 */
+/*   Updated: 2020/04/08 13:45:19 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ void	sprite_color(t_data *data, int y)
 	int pixel;
 	int d;
 
-	d = (y) * 256 - HEIGHT * 128 + SPRITE_HEIGHT * 128;
-	TEX_Y_SPRITE = ((d * TEX_HEIGHT_SPRITE) / SPRITE_HEIGHT) / 256;
-	pixel = ((TEX_Y_SPRITE * LL_SPRITE) + (TEX_X_SPRITE * (BPP_SPRITE / 8)));
-	SPRITE_COLOR = *(unsigned int *)(ADDRES_SPRITE + pixel);
-	if ((SPRITE_COLOR & 0x00FFFFFF) != 0)
-		pixel_to_image(data, STRIPE, y, SPRITE_COLOR);
+	d = (y) * 256 - data->res.y * 128 + data->sprites.height * 128;
+	data->sprites.tex_y = ((d * data->sprite.res.x) / data->sprites.height) /
+																			256;
+	pixel = ((data->sprites.tex_y * data->sprite.mlx.line_len) +
+						(data->sprites.tex_x * (data->sprite.mlx.bpp / 8)));
+	data->sprite.color = *(unsigned int *)(data->sprite.mlx.addr + pixel);
+	if ((data->sprite.color & 0x00FFFFFF) != 0)
+		pixel_to_image(data, data->sprites.stripe, y, data->sprite.color);
 }

@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/06 14:43:26 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/27 14:08:17 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/06 14:43:26 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 10:45:23 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void		camera_x(t_data *data, int x)
 {
-	CAM_X = ((2 * x) / (double)WIDTH) - 1;
+	data->raycast.camera_x = ((2 * x) / (double)data->res.x) - 1;
 }

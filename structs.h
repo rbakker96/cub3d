@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/06 14:01:38 by rbakker        #+#    #+#                */
-/*   Updated: 2020/04/01 20:32:33 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/06 14:01:38 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 21:01:04 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ typedef enum			e_defenitions
 	top = 3,
 	bottom = 4,
 	on_screen = 5,
-	off_screen = 6
+	off_screen = 6,
+	checked = 9
 }						t_defenitions;
 
 /*
@@ -47,11 +48,11 @@ typedef struct			s_2d_int
 	int					y;
 }						t_2d_int;
 
-typedef struct			s_sprite_position
+typedef struct			s_sprite_pos
 {
-	t_2d_double			position;
-	double				distance;
-}						t_sprite_position;
+	t_2d_double			pos;
+	double				dis;
+}						t_sprite_pos;
 
 typedef struct			s_color
 {
@@ -66,8 +67,8 @@ typedef struct			s_mlx_image
 {
 	void				*img;
 	char				*addr;
-	int					bits_per_pixel;
-	int					line_length;
+	int					bpp;
+	int					line_len;
 	int					endian;
 	int					usage;
 }						t_mlx_image;
@@ -75,44 +76,47 @@ typedef struct			s_mlx_image
 typedef struct			s_texture
 {
 	char				*path;
-	t_mlx_image			image;
-	t_2d_int			tex_resolution;
+	t_mlx_image			mlx;
+	t_2d_int			tex_res;
 	uint32_t			color;
-	double				wallX;
-	int					texX;
-	int					texY;
-	double				texPos;
+	double				wall_x;
+	int					tex_x;
+	int					tex_y;
+	double				tex_pos;
 	double				step;
 	int					validation;
 }						t_texture;
 
-typedef struct			s_sprite
+typedef struct			s_sprite_calc
 {
-	t_mlx_image			image;
-	t_2d_int			sprite_resolution;
-	t_sprite_position	*sprite_position;
-	int					amount_of_sprites;
-	char				*path;
-	double				*distance;
-	uint32_t			color;
-	double				spriteX;
-	double				spriteY;
-	double				transformX;
-	double				transformY;
-	int					splitscreenX;
-	int					sprite_height;
-	int					sprite_width;
+	double				sprite_x;
+	double				sprite_y;
+	double				transform_x;
+	double				transform_y;
+	int					spritescreen;
+	int					height;
+	int					width;
 	int					draw_start_x;
 	int					draw_end_x;
 	int					draw_start_y;
 	int					draw_end_y;
-	int					texX_sprite;
-	int					texY_sprite;
+	int					tex_x;
+	int					tex_y;
 	int					stripe;
 	double				matrix;
+}						t_sprite_calc;
+
+typedef struct			s_sprite
+{
+	t_mlx_image			mlx;
+	t_2d_int			res;
+	t_sprite_pos		*pos;
+	int					amount;
+	char				*path;
+	double				*dis;
+	uint32_t			color;
 	int					validation;
 }						t_sprite;
-
 
 typedef struct			s_movement
 {
@@ -128,14 +132,6 @@ typedef struct			s_movement
 **--------------------------INPUT DATA STRUCTS----------------------------------
 */
 
-typedef struct			s_mlx_data
-{
-	void				*mlx;
-	void				*mlx_win;
-	t_mlx_image			image_one;
-	t_mlx_image			image_two;
-}						t_mlx_data;
-
 typedef struct			s_resolution_data
 {
 	int					x;
@@ -143,24 +139,16 @@ typedef struct			s_resolution_data
 	int					validation;
 }						t_resolution_data;
 
-typedef struct			s_texture_data
+typedef struct			s_color_data
 {
-	t_texture			north_texture;
-	t_texture			south_texture;
-	t_texture			west_texture;
-	t_texture			east_texture;
-	t_sprite			sprite_texture;
-}						t_texture_data;
-
-typedef struct 			s_color_data
-{
-	t_color				floor_color;
-	t_color				ceilling_color;
+	t_color				floor;
+	t_color				ceilling;
 }						t_color_data;
 
 typedef struct			s_map_data
 {
 	char				spawning_point;
+	int					map_size;
 	char				**map;
 	char				*map_input;
 }						t_map_data;
@@ -172,17 +160,17 @@ typedef struct			s_map_data
 typedef struct			s_raycasting_calc
 {
 	t_movement			move;
-	t_2d_double			direction;
-	t_2d_double			old_direction;
+	t_2d_double			dir;
+	t_2d_double			old_dir;
 	t_2d_double			plane;
 	t_2d_double			old_plane;
 	t_2d_double			pos;
-	t_2d_double			side_distance;
-	t_2d_double			delta_distance;
-	t_2d_double			ray_direction;
+	t_2d_double			side_dis;
+	t_2d_double			delta_dis;
+	t_2d_double			ray_dir;
 	t_2d_int			step;
 	t_2d_int			map;
-	double				perp_wall_distance;
+	double				wall_dis;
 	double				camera_x;
 	int					side;
 	int					lineheight;
@@ -196,12 +184,20 @@ typedef struct			s_raycasting_calc
 
 typedef struct			s_data
 {
-	t_mlx_data			mlx_data;
-	t_resolution_data	resolution;
-	t_texture_data		texture_data;
+	void				*mlx;
+	void				*mlx_win;
+	t_mlx_image			image_one;
+	t_mlx_image			image_two;
+	t_resolution_data	res;
+	t_texture			north;
+	t_texture			south;
+	t_texture			west;
+	t_texture			east;
+	t_sprite			sprite;
+	t_sprite_calc		sprites;
 	t_color_data		color;
 	t_map_data			map;
-	t_raycasting_calc	raycasting;
+	t_raycasting_calc	raycast;
 }						t_data;
 
 #endif

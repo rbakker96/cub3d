@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/27 11:28:33 by roybakker      #+#    #+#                */
-/*   Updated: 2020/04/01 10:49:30 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/27 11:28:33 by roybakker     #+#    #+#                 */
+/*   Updated: 2020/04/08 21:34:26 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		sprite_position_and_distance(t_data *data)
 {
 	int			x;
 	int			y;
-	int 		i;
+	int			i;
 	t_2d_double position;
 
 	i = 0;
@@ -30,7 +30,7 @@ void		sprite_position_and_distance(t_data *data)
 			{
 				position.x = x + 0.5;
 				position.y = y + 0.5;
-				data->texture_data.sprite_texture.sprite_position[i].position = position;
+				data->sprite.pos[i].pos = position;
 				sprite_distance(data, i);
 				i++;
 			}
@@ -43,6 +43,25 @@ void		sprite_position_and_distance(t_data *data)
 
 void	sprite_distance(t_data *data, int i)
 {
-	data->texture_data.sprite_texture.sprite_position[i].distance = ((POS_X - data->texture_data.sprite_texture.sprite_position[i].position.x) * (POS_X - data->texture_data.sprite_texture.sprite_position[i].position.x) +
-																	(POS_Y - data->texture_data.sprite_texture.sprite_position[i].position.y) * (POS_Y - data->texture_data.sprite_texture.sprite_position[i].position.y));
+	data->sprite.pos[i].dis = ((data->raycast.pos.x - data->sprite.pos[i].pos.x)
+							* (data->raycast.pos.x - data->sprite.pos[i].pos.x)
+							+ (data->raycast.pos.y - data->sprite.pos[i].pos.y)
+							* (data->raycast.pos.y - data->sprite.pos[i].pos.y))
+																			;
+}
+
+void		set_sprites_array(t_data *data)
+{
+	int i;
+
+	i = 0;
+	while (data->map.map_input[i] != '\0')
+	{
+		if (data->map.map_input[i] == '2')
+			data->sprite.amount++;
+		i++;
+	}
+	data->sprite.pos = malloc(sizeof(t_sprite_pos) * data->sprite.amount + 1);
+	if (!data->sprite.pos)
+		parse_error(35, 0, 0);
 }

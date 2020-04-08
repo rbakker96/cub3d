@@ -5,51 +5,53 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/06 14:40:29 by rbakker        #+#    #+#                */
-/*   Updated: 2020/03/20 10:27:28 by roybakker     ########   odam.nl         */
+/*   Created: 2020/03/06 14:40:29 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/08 21:06:54 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
-void		view_direction(t_data *data)
+void		set_view_direction(t_data *data)
 {
 	if (data->map.spawning_point == 'S')
 	{
-		DIR_X = 0.0;
-		DIR_Y = 1.0;
+		data->raycast.dir.x = 0.0;
+		data->raycast.dir.y = 1.0;
 	}
 	if (data->map.spawning_point == 'W')
 	{
-		DIR_X = -1.0;
-		DIR_Y = 0.0;
+		data->raycast.dir.x = -1.0;
+		data->raycast.dir.y = 0.0;
 	}
 	if (data->map.spawning_point == 'E')
 	{
-		DIR_X = 1.0;
-		DIR_Y = 0.0;
+		data->raycast.dir.x = 1.0;
+		data->raycast.dir.y = 0.0;
 	}
 	if (data->map.spawning_point == 'N')
 	{
-		DIR_X = 0.0;
-		DIR_Y = -1.0;
+		data->raycast.dir.x = 0.0;
+		data->raycast.dir.y = -1.0;
 	}
 }
 
 void		ray_direction(t_data *data)
 {
-	RAY_DIR_X = DIR_X + PLANE_X * CAM_X;
-	RAY_DIR_Y = DIR_Y + PLANE_Y * CAM_X;
+	data->raycast.ray_dir.x = data->raycast.dir.x + data->raycast.plane.x *
+														data->raycast.camera_x;
+	data->raycast.ray_dir.y = data->raycast.dir.y + data->raycast.plane.y *
+														data->raycast.camera_x;
 }
 
 void		step_size(t_data *data)
 {
-	if (RAY_DIR_X < 0)
-		STEP_X = -1;
+	if (data->raycast.ray_dir.x < 0)
+		data->raycast.step.x = -1;
 	else
-		STEP_X = 1;
-	if (RAY_DIR_Y < 0)
-		STEP_Y = -1;
+		data->raycast.step.x = 1;
+	if (data->raycast.ray_dir.y < 0)
+		data->raycast.step.y = -1;
 	else
-		STEP_Y = 1;
+		data->raycast.step.y = 1;
 }
