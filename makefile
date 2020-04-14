@@ -6,7 +6,7 @@
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/02/05 14:55:09 by rbakker       #+#    #+#                  #
-#    Updated: 2020/04/08 21:26:45 by roybakker     ########   odam.nl          #
+#    Updated: 2020/04/14 11:20:18 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ SOURCES	= 	main.c \
 			mlx_functions/create_texture.c \
 			mlx_functions/create_image.c \
 			mlx_functions/create_sprite.c \
+			mlx_functions/close_screen.c \
+			bmp/create_bmp.c \
+			bmp/get_rgb_color.c \
 			parse/parse_general_input.c \
 			parse/parse_map_input.c \
 			parse/parse_texture_input.c \
@@ -27,6 +30,7 @@ SOURCES	= 	main.c \
 			parse/validate_general_input.c \
 			parse/validate_read_lines.c \
 			parse/flood_fill_map_check.c \
+			parse/validate_resolution.c \
 			render/render.c \
 			render/camera_calc.c \
 			render/direction_calc.c \

@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:30:30 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/08 11:25:21 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/14 20:18:18 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	reset_validation(t_data *data)
 	data->south.validation = 0;
 	data->sprite.validation = 0;
 	data->west.validation = 0;
+	data->bmp_needed = 0;
 }
 
 void	reset_texture(t_data *data)

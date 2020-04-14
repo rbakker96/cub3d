@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   distance_calc.c             d                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 14:38:04 by rbakker           #+#    #+#             */
-/*   Updated: 2020/03/10 14:12:57 by rbakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   distance_calc.c                                    :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rbakker <rbakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/03/06 14:38:04 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/10 14:30:26 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		side_distance(t_data *data)
 							data->raycast.pos.y) * data->raycast.delta_dis.y;
 }
 
-void	set_prep_distance_array(t_data *data)
+void		set_prep_distance_array(t_data *data)
 {
 	data->sprite.dis = malloc(sizeof(double) * data->res.x);
 	if (!data->sprite.dis)

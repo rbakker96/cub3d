@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   create_image.c                                     :+:    :+:            */
+/*   get_rgb_color.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/25 19:05:46 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/13 17:50:58 by roybakker     ########   odam.nl         */
+/*   Created: 2020/04/14 10:36:21 by roybakker     #+#    #+#                 */
+/*   Updated: 2020/04/14 14:14:14 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
-void	pixel_to_image(t_data *data, int x, int y, int color)
+int		get_red(int rgb)
 {
-	char	*dst;
+	return (rgb & 0xFF);
+}
 
-	if (data->image_one.usage == off_screen)
-		dst = data->image_one.addr + (y * data->image_one.line_len + x *
-													(data->image_one.bpp / 8));
-	else
-		dst = data->image_two.addr + (y * data->image_two.line_len + x *
-													(data->image_two.bpp / 8));
-	*(unsigned int*)dst = color;
+int		get_green(int rgb)
+{
+	return ((rgb >> 8) & 0xFF);
+}
+
+int		get_blue(int rgb)
+{
+	return ((rgb >> 16) & 0xFF);
 }

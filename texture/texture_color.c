@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/23 14:16:53 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/08 11:27:04 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/14 12:08:44 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void		north_texture(t_data *data, int x, int y)
 
 	data->north.tex_y = (int)data->north.tex_pos & (data->north.tex_res.x - 1);
 	data->north.tex_pos += data->north.step;
-	pixel = ((data->north.tex_y * data->north.mlx.line_len) + (data->north.tex_x * (data->north.mlx.bpp / 8)));
+	pixel = ((data->north.tex_y * data->north.mlx.line_len) + (data->north.tex_x
+												* (data->north.mlx.bpp / 8)));
 	data->north.color = *(unsigned int *)(data->north.mlx.addr + pixel);
 	if (data->raycast.side == 1)
 		data->north.color = (data->north.color >> 1) & 8355711;
@@ -43,7 +44,8 @@ void		south_texture(t_data *data, int x, int y)
 
 	data->south.tex_y = (int)data->south.tex_pos & (data->south.tex_res.x - 1);
 	data->south.tex_pos += data->south.step;
-	pixel = ((data->south.tex_y * data->south.mlx.line_len) + (data->south.tex_x * (data->south.mlx.bpp / 8)));
+	pixel = ((data->south.tex_y * data->south.mlx.line_len) + (data->south.tex_x
+												* (data->south.mlx.bpp / 8)));
 	data->south.color = *(unsigned int *)(data->south.mlx.addr + pixel);
 	if (data->raycast.side == 1)
 		data->south.color = (data->south.color >> 1) & 8355711;
@@ -56,7 +58,8 @@ void		east_texture(t_data *data, int x, int y)
 
 	data->east.tex_y = (int)data->east.tex_pos & (data->east.tex_res.x - 1);
 	data->east.tex_pos += data->east.step;
-	pixel = ((data->east.tex_y * data->east.mlx.line_len) + (data->east.tex_x * (data->east.mlx.bpp / 8)));
+	pixel = ((data->east.tex_y * data->east.mlx.line_len) + (data->east.tex_x *
+													(data->east.mlx.bpp / 8)));
 	data->east.color = *(unsigned int *)(data->east.mlx.addr + pixel);
 	if (data->raycast.side == 1)
 		data->east.color = (data->east.color >> 1) & 8355711;
@@ -69,7 +72,8 @@ void		west_texture(t_data *data, int x, int y)
 
 	data->west.tex_y = (int)data->west.tex_pos & (data->west.tex_res.x - 1);
 	data->west.tex_pos += data->west.step;
-	pixel = ((data->west.tex_y * data->west.mlx.line_len) + (data->west.tex_x * (data->west.mlx.bpp / 8)));
+	pixel = ((data->west.tex_y * data->west.mlx.line_len) + (data->west.tex_x *
+													(data->west.mlx.bpp / 8)));
 	data->west.color = *(unsigned int *)(data->west.mlx.addr + pixel);
 	if (data->raycast.side == 1)
 		data->west.color = (data->west.color >> 1) & 8355711;

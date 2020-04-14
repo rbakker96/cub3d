@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:28:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/08 20:26:26 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/09 11:05:21 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void		parse_resolution(t_data *data, char **input_data)
 		data->res.validation = present;
 	data->res.x = ft_atoi(input_data[1]);
 	data->res.y = ft_atoi(input_data[2]);
+	check_resolution(data);
 }
 
 void		parse_floor(t_data *data, char **input_data)

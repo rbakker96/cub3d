@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/10 11:49:36 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/08 11:53:25 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/09 13:48:33 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	move_forward(t_data *data)
 	int tmp;
 
 	tmp = data->raycast.pos.x + data->raycast.dir.x * 0.06;
-	if (MAP[(int)data->raycast.pos.y][tmp] != '1')
+	if (data->map.map[(int)data->raycast.pos.y][tmp] != '1')
 		data->raycast.pos.x += data->raycast.dir.x * 0.06;
 	tmp = data->raycast.pos.y + data->raycast.dir.y * 0.06;
-	if (MAP[tmp][(int)data->raycast.pos.x] != '1')
+	if (data->map.map[tmp][(int)data->raycast.pos.x] != '1')
 		data->raycast.pos.y += data->raycast.dir.y * 0.06;
 }
 
@@ -29,10 +29,10 @@ void	move_backward(t_data *data)
 	int tmp;
 
 	tmp = data->raycast.pos.x - data->raycast.dir.x * 0.06;
-	if (MAP[(int)data->raycast.pos.y][tmp] != '1')
+	if (data->map.map[(int)data->raycast.pos.y][tmp] != '1')
 		data->raycast.pos.x -= data->raycast.dir.x * 0.06;
 	tmp = data->raycast.pos.y - data->raycast.dir.y * 0.06;
-	if (MAP[tmp][(int)data->raycast.pos.x] != '1')
+	if (data->map.map[tmp][(int)data->raycast.pos.x] != '1')
 		data->raycast.pos.y -= data->raycast.dir.y * 0.06;
 }
 
@@ -50,10 +50,10 @@ void	move_left(t_data *data)
 	turn_vec.x = data->raycast.dir.x * 0 - data->raycast.dir.y * -1;
 	turn_vec.y = data->raycast.dir.x * -1 + data->raycast.dir.y * 0;
 	tmp = data->raycast.pos.x + turn_vec.x * 0.06;
-	if (MAP[(int)data->raycast.pos.y][tmp] != '1')
+	if (data->map.map[(int)data->raycast.pos.y][tmp] != '1')
 		data->raycast.pos.x += turn_vec.x * 0.06;
 	tmp = data->raycast.pos.y + turn_vec.y * 0.06;
-	if (MAP[tmp][(int)data->raycast.pos.x] != '1')
+	if (data->map.map[tmp][(int)data->raycast.pos.x] != '1')
 		data->raycast.pos.y += turn_vec.y * 0.06;
 }
 
@@ -71,9 +71,9 @@ void	move_right(t_data *data)
 	turn_vec.x = data->raycast.dir.x * 0 - data->raycast.dir.y * 1;
 	turn_vec.y = data->raycast.dir.x * 1 + data->raycast.dir.y * 0;
 	tmp = data->raycast.pos.x + turn_vec.x * 0.06;
-	if (MAP[(int)data->raycast.pos.y][tmp] != '1')
+	if (data->map.map[(int)data->raycast.pos.y][tmp] != '1')
 		data->raycast.pos.x += turn_vec.x * 0.06;
 	tmp = data->raycast.pos.y + turn_vec.y * 0.06;
-	if (MAP[tmp][(int)data->raycast.pos.x] != '1')
+	if (data->map.map[tmp][(int)data->raycast.pos.x] != '1')
 		data->raycast.pos.y += turn_vec.y * 0.06;
 }

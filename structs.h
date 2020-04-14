@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:01:38 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/08 21:01:04 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/14 21:19:37 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,6 +198,7 @@ typedef struct			s_data
 	t_color_data		color;
 	t_map_data			map;
 	t_raycasting_calc	raycast;
+	int					bmp_needed;
 }						t_data;
 
 #endif

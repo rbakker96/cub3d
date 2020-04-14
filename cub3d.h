@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/08 21:35:57 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/14 20:38:22 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,31 @@ void		pixel_to_image(t_data *data, int x, int y, int color);
 void		create_sprite_image(t_data *data);
 
 /*
+** close_screen.c
+*/
+int			button_close_screen(t_data *data);
+int			key_close_screen(t_data *data);
+
+/*
+**--------------------------------BMP IMAGE-------------------------------------
+*/
+
+/*
+** create_bmp.c
+*/
+int			file_header(t_data *data, int fd);
+int			image_header(t_data *data, int fd);
+int			pixel_array(t_data *data, int x, int y,int fd);
+void		create_bmp(t_data *data);
+
+/*
+** get_rgb_color.c
+*/
+int			get_red(int rgb);
+int			get_green(int rgb);
+int			get_blue(int rgb);
+
+/*
 **----------------------------------PARSE---------------------------------------
 */
 
@@ -140,6 +165,11 @@ int			check_file_name(char *file_name);
 int			arguments_count(char **input_data);
 t_color		color_value(char *input_str, char **input_array);
 void		validate_general_input(t_data *data);
+
+/*
+** validate_resolution.c
+*/
+void		check_resolution(t_data *data);
 
 /*
 **----------------------------------RENDER--------------------------------------

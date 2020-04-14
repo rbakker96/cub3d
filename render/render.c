@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/03 15:23:10 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/08 21:37:33 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/14 10:47:20 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void		render_screen(t_data *data, int x)
 		x++;
 	}
 	cast_sprites(data, 0);
+	if (data->bmp_needed)
+		create_bmp(data);
 	if (data->image_one.usage == off_screen)
 	{
 		mlx_put_image_to_window(data->mlx, data->mlx_win, data->image_one.img,

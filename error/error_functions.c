@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:17:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/08 20:41:01 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/14 20:23:11 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,18 +95,18 @@ char	*table_3(int error_code)
 	if (error_code == 35)
 		return ("Error\nMalloc failed\n");
 	if (error_code == 36)
-		return ("Error\n\n");
+		return ("Error\nNegative resolution value\n");
 	return (0);
 }
 
 char	*table_4(int error_code)
 {
 	if (error_code == 37)
-		return ("Error\n\n");
+		return ("Error\nInvalid texture path\n");
 	if (error_code == 38)
-		return ("Error\n\n");
+		return ("Error\nNot able to create bmp file\n");
 	if (error_code == 39)
-		return ("Error\n\n");
+		return ("Error\nWrite failure\n");
 	if (error_code == 40)
 		return ("Error\n\n");
 	if (error_code == 41)

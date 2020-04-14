@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/10 13:37:38 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/08 11:55:28 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/09 13:44:54 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		key_press(int keycode, t_data *data)
 		data->raycast.move.move_right = 1;
 	if (keycode == RIGHT_KEY)
 		data->raycast.move.turn_right = 1;
+	if (keycode == ESC_KEY)
+		key_close_screen(data);
 	return (0);
 }
 
