@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/27 11:28:33 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/08 21:34:26 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/16 11:56:52 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ void		set_sprites_array(t_data *data)
 	}
 	data->sprite.pos = malloc(sizeof(t_sprite_pos) * data->sprite.amount + 1);
 	if (!data->sprite.pos)
-		parse_error(35, 0, 0);
+		parse_error(35, data, 0, 0);
 }

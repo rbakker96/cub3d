@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:37:17 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/09 14:25:45 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/16 11:54:26 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,54 +15,59 @@
 void	parse_north(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
-		parse_error(14, input_data, 0);
+		parse_error(14, data, input_data, 0);
 	if (data->north.validation == present)
-		parse_error(15, input_data, 0);
+		parse_error(15, data, input_data, 0);
 	else
 		data->north.validation = present;
-	data->north.path = input_data[1];
+	data->north.path = ft_strdup(input_data[1]);
+	free_array(input_data);
 }
 
 void	parse_south(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
-		parse_error(16, input_data, 0);
+		parse_error(16, data, input_data, 0);
 	if (data->south.validation == present)
-		parse_error(17, input_data, 0);
+		parse_error(17, data, input_data, 0);
 	else
 		data->south.validation = present;
-	data->south.path = input_data[1];
+	data->south.path = ft_strdup(input_data[1]);
+	free_array(input_data);
 }
 
 void	parse_east(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
-		parse_error(18, input_data, 0);
+		parse_error(18, data, input_data, 0);
 	if (data->east.validation == present)
-		parse_error(19, input_data, 0);
+		parse_error(19, data, input_data, 0);
 	else
 		data->east.validation = present;
-	data->east.path = input_data[1];
+	data->east.path = ft_strdup(input_data[1]);
+	free_array(input_data);
 }
 
 void	parse_west(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
-		parse_error(20, input_data, 0);
+		parse_error(20, data, input_data, 0);
 	if (data->west.validation == present)
-		parse_error(21, input_data, 0);
+		parse_error(21, data, input_data, 0);
 	else
 		data->west.validation = present;
-	data->west.path = input_data[1];
+	data->west.path = ft_strdup(input_data[1]);
+	free_array(input_data);
 }
 
 void	parse_sprite(t_data *data, char **input_data)
 {
 	if (arguments_count(input_data) != 2)
-		parse_error(22, input_data, 0);
+		parse_error(22, data, input_data, 0);
 	if (data->sprite.validation == present)
-		parse_error(23, input_data, 0);
+		parse_error(23, data, input_data, 0);
 	else
 		data->sprite.validation = present;
-	data->sprite.path = input_data[1];
+	data->sprite.path = ft_strdup(input_data[1]);
+	free_array(input_data);
 }

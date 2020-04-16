@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:17:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/14 20:23:11 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/16 15:26:01 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*table_3(int error_code)
 	if (error_code == 29)
 		return ("Error\nResolution value is missing\n");
 	if (error_code == 30)
-		return ("Error\nSpawning point missing or multiple spawning points\n");
+		return ("Error\nPlayer missing or multiple players\n");
 	if (error_code == 31)
 		return ("Error\nMLX failed to init\n");
 	if (error_code == 32)
@@ -108,9 +108,9 @@ char	*table_4(int error_code)
 	if (error_code == 39)
 		return ("Error\nWrite failure\n");
 	if (error_code == 40)
-		return ("Error\n\n");
+		return ("Error\nFailed to close file\n");
 	if (error_code == 41)
-		return ("Error\n\n");
+		return ("Error\nUnkonwn extension given, use --save instead\n");
 	if (error_code == 42)
 		return ("Error\n\n");
 	if (error_code == 43)
@@ -128,7 +128,7 @@ char	*table_4(int error_code)
 	return (0);
 }
 
-void	parse_error(int code, char **array_1, char **array_2)
+void	parse_error(int code, t_data *data, char **array_1, char **array_2)
 {
 	char	*error_message;
 
@@ -137,8 +137,10 @@ void	parse_error(int code, char **array_1, char **array_2)
 	else
 		error_message = (code <= 36) ? table_3(code) : table_4(code);
 	ft_putstr_fd(error_message, 2);
-	free_array(array_1);
+	if (array_1)
+		free_array(array_1);
 	if (array_2)
 		free_array(array_2);
+	free_struct(data);
 	exit(0);
 }

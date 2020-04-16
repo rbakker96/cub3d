@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:38:04 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/10 14:30:26 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/16 11:56:48 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void		set_prep_distance_array(t_data *data)
 {
 	data->sprite.dis = malloc(sizeof(double) * data->res.x);
 	if (!data->sprite.dis)
-		parse_error(35, 0, 0);
+		parse_error(35, data, 0, 0);
 }

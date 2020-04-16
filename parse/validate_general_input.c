@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:33:17 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/08 10:33:37 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/16 11:56:25 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,23 @@ int		arguments_count(char **input_data)
 	return (i);
 }
 
-t_color	color_value(char *input_str, char **input_array)
+t_color	color_value(char *input_str, t_data *data, char **input_array)
 {
 	t_color color;
 	char	**colors;
 
 	colors = ft_split(input_str, ',');
 	if (arguments_count(colors) != 3)
-		parse_error(10, input_array, colors);
+		parse_error(10, data, input_array, colors);
 	color.r = ft_atoi(colors[0]);
 	if (color.r < 0 || color.r > 255)
-		parse_error(11, input_array, colors);
+		parse_error(11, data, input_array, colors);
 	color.g = ft_atoi(colors[1]);
 	if (color.g < 0 || color.g > 255)
-		parse_error(12, input_array, colors);
+		parse_error(12, data, input_array, colors);
 	color.b = ft_atoi(colors[2]);
 	if (color.b < 0 || color.b > 255)
-		parse_error(13, input_array, colors);
+		parse_error(13, data, input_array, colors);
 	free_array(colors);
 	return (color);
 }
@@ -65,12 +65,12 @@ void	validate_general_input(t_data *data)
 		data->south.validation == 0 ||
 		data->sprite.validation == 0 ||
 		data->west.validation == 0)
-		parse_error(27, 0, 0);
+		parse_error(27, data, 0, 0);
 	if (data->color.floor.validation == 0 ||
 		data->color.ceilling.validation == 0)
-		parse_error(28, 0, 0);
+		parse_error(28, data, 0, 0);
 	if (data->res.validation == 0)
-		parse_error(29, 0, 0);
+		parse_error(29, data, 0, 0);
 	else
 		return ;
 }

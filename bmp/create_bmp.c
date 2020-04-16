@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 12:22:02 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/14 21:19:07 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/16 11:48:40 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int			pixel_array(t_data *data, int x, int y, int fd)
 		x = 0;
 		while (x < data->res.x)
 		{
-			pos = data->image_one.addr + (y *
-					data->image_one.line_len + x * (data->image_one.bpp / 8));
+			pos = data->image_one.addr + (y * data->image_one.line_len + x *
+													(data->image_one.bpp / 8));
 			pixel = *(unsigned int *)pos;
 			if (write(fd, &pixel, 3) < 0)
 				return (-1);
@@ -65,14 +65,19 @@ int			pixel_array(t_data *data, int x, int y, int fd)
 
 void		create_bmp(t_data *data)
 {
-	int		fd;
+	int fd;
+	int fail;
 
 	fd = open("./screenshot/image.bmp", O_RDWR | O_TRUNC | O_CREAT, S_IRWXU);
 	if (fd == -1)
-		parse_error(38, 0, 0);
+		parse_error(38, data, 0, 0);
 	if (file_header(data, fd) < 0 || image_header(data, fd) < 0 ||
 		pixel_array(data, 0, 0, fd) < 0)
-		parse_error(39, 0, 0);
+	{
+		close(fd);
+		parse_error(39, data, 0, 0);
+	}
 	data->bmp_needed = 0;
-	close(fd);
+	fail = close(fd);
+	(fail < 0) ? parse_error(40, data, 0, 0) : fail;
 }

@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/14 20:38:22 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/16 15:54:13 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ char		*table_1(int error_code);
 char		*table_2(int error_code);
 char		*table_3(int error_code);
 char		*table_4(int error_code);
-void		parse_error(int code, char **array_1, char **array_2);
+void		parse_error(int code, t_data *data, char **array_1, char **array_2);
 
 /*
 ** free_functions.c
 */
 void		free_array(char **array);
-void		free_machine(char *string, char **array);
+void		free_struct(t_data *data);
+void		free_map(t_data *data);
+void		free_texture(t_data *data);
 
 /*
 ** reset_functions.c
@@ -138,7 +140,7 @@ void		parse_sprite(t_data *data, char **input_data);
 /*
 ** parse_map_input.c
 */
-char		*join_map_lines(char *map, char *line, int i, int x);
+char		*join_map_lines(char *map, char *line, t_data *data, int i);
 void		update_map(char *line, t_data *data);
 void		map_input(t_data *data, int fd);
 
@@ -146,9 +148,10 @@ void		map_input(t_data *data, int fd);
 ** flood_fill_map_check.c
 */
 void		floodfill_algorithm(t_data *data);
-void		flood_map(char **map, char spawning_point, int x, int y);
+void		flood_map(char **map, t_data *data, int x, int y);
 t_2d_int	position(t_data *data, int x, int y);
-char		check_spawning_point(t_data *data);
+void		check_spawning_point(t_data *data);
+void		check_top_and_bottom_line(char **map, t_data *data, int x, int y);
 
 /*
 ** validate_read_lines.c
@@ -163,7 +166,7 @@ int			map_line(char *line);
 */
 int			check_file_name(char *file_name);
 int			arguments_count(char **input_data);
-t_color		color_value(char *input_str, char **input_array);
+t_color		color_value(char *input_str, t_data *data, char **input_array);
 void		validate_general_input(t_data *data);
 
 /*
