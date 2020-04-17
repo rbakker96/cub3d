@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/19 08:35:22 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/08 11:27:55 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/17 13:36:21 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,39 @@ void	calculate_texture_variables(t_data *data)
 void	calculate_north_variables(t_data *data)
 {
 	data->north.wall_x = calculate_wall_x(data);
-	data->north.tex_x = calculate_tex_x(data, data->north.wall_x, data->north.tex_res.y);
+	data->north.tex_x = calculate_tex_x(data, data->north.wall_x,
+											data->north.tex_res.y);
 	data->north.step = 1.0 * data->north.tex_res.x / data->raycast.lineheight;
-	data->north.tex_pos = (data->raycast.draw_start - data->res.y / 2 + data->raycast.lineheight / 2) * data->north.step;
+	data->north.tex_pos = (data->raycast.draw_start - data->res.y / 2 +
+							data->raycast.lineheight / 2) * data->north.step;
 }
 
 void	calculate_south_variables(t_data *data)
 {
 	data->south.wall_x = calculate_wall_x(data);
-	data->south.tex_x = calculate_tex_x(data, data->south.wall_x, data->south.tex_res.y);
+	data->south.tex_x = calculate_tex_x(data, data->south.wall_x,
+											data->south.tex_res.y);
 	data->south.step = 1.0 * data->south.tex_res.x / data->raycast.lineheight;
-	data->south.tex_pos = (data->raycast.draw_start - data->res.y / 2 + data->raycast.lineheight / 2) * data->south.step;
+	data->south.tex_pos = (data->raycast.draw_start - data->res.y / 2 +
+							data->raycast.lineheight / 2) * data->south.step;
 }
 
 void	calculate_west_variables(t_data *data)
 {
 	data->west.wall_x = calculate_wall_x(data);
-	data->west.tex_x = calculate_tex_x(data, data->west.wall_x, data->west.tex_res.y);
+	data->west.tex_x = calculate_tex_x(data, data->west.wall_x,
+											data->west.tex_res.y);
 	data->west.step = 1.0 * data->west.tex_res.x / data->raycast.lineheight;
-	data->west.tex_pos = (data->raycast.draw_start - data->res.y / 2 + data->raycast.lineheight / 2) * data->west.step;
+	data->west.tex_pos = (data->raycast.draw_start - data->res.y / 2 +
+								data->raycast.lineheight / 2) * data->west.step;
 }
 
 void	calculate_east_variables(t_data *data)
 {
 	data->east.wall_x = calculate_wall_x(data);
-	data->east.tex_x = calculate_tex_x(data, data->east.wall_x, data->east.tex_res.y);
+	data->east.tex_x = calculate_tex_x(data, data->east.wall_x,
+											data->east.tex_res.y);
 	data->east.step = 1.0 * data->east.tex_res.x / data->raycast.lineheight;
-	data->east.tex_pos = (data->raycast.draw_start - data->res.y / 2 + data->raycast.lineheight / 2) * data->east.step;
+	data->east.tex_pos = (data->raycast.draw_start - data->res.y / 2 +
+								data->raycast.lineheight / 2) * data->east.step;
 }

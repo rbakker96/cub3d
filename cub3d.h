@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/16 15:54:13 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/17 14:01:54 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <math.h>
 # include "mlx/mlx.h"
 # include "libft/libft.h"
-# include "list/list.h"
 # include "gnl/get_next_line.h"
 # include "structs.h"
 # include "defenitions.h"
@@ -97,6 +96,7 @@ int			key_close_screen(t_data *data);
 /*
 ** create_bmp.c
 */
+int			get_padding(t_data *data);
 int			file_header(t_data *data, int fd);
 int			image_header(t_data *data, int fd);
 int			pixel_array(t_data *data, int x, int y,int fd);

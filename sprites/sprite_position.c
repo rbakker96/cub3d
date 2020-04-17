@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/27 11:28:33 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/16 11:56:52 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/17 13:35:09 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		sprite_position_and_distance(t_data *data)
 	return ;
 }
 
-void	sprite_distance(t_data *data, int i)
+void		sprite_distance(t_data *data, int i)
 {
 	data->sprite.pos[i].dis = ((data->raycast.pos.x - data->sprite.pos[i].pos.x)
 							* (data->raycast.pos.x - data->sprite.pos[i].pos.x)

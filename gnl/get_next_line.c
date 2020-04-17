@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: rbakker <rbakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/11 10:55:43 by rbakker        #+#    #+#                */
-/*   Updated: 2019/12/11 17:09:07 by rbakker       ########   odam.nl         */
+/*   Created: 2019/11/11 10:55:43 by rbakker       #+#    #+#                 */
+/*   Updated: 2020/04/17 12:04:56 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int		save_line(char **buf, char **line, int size, int i)
 	return (1);
 }
 
-int		get_next_line(int fd, char **line)
+int				get_next_line(int fd, char **line)
 {
 	static char	*buf;
 	char		b[BUFFER_SIZE + 1];

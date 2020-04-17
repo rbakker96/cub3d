@@ -6,18 +6,18 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/25 18:56:56 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/08 21:07:31 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/17 13:33:50 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
-uint32_t		create_rgb(int r, int g, int b)
+uint32_t	create_rgb(int r, int g, int b)
 {
 	return (r << 16 | g << 8 | b);
 }
 
-void	set_floor_and_ceilling_color(t_data *data)
+void		set_floor_and_ceilling_color(t_data *data)
 {
 	data->color.ceilling.color = create_rgb(data->color.ceilling.r,
 											data->color.ceilling.g,

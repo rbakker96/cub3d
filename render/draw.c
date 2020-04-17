@@ -6,13 +6,13 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/19 09:14:55 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/08 10:36:42 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/17 13:34:00 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
 
-void		draw_screen(t_data *data, int x)
+void	draw_screen(t_data *data, int x)
 {
 	data->raycast.lineheight = (int)(data->res.y / data->raycast.wall_dis);
 	data->raycast.draw_start = -data->raycast.lineheight / 2 + data->res.y / 2;

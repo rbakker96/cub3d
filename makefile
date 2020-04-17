@@ -6,7 +6,7 @@
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/02/05 14:55:09 by rbakker       #+#    #+#                  #
-#    Updated: 2020/04/14 11:20:18 by roybakker     ########   odam.nl          #
+#    Updated: 2020/04/17 19:02:54 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,12 +74,11 @@ $(NAME): $(OBJECTS)
 	@make -C gnl
 	@echo "$(WHITE)Working on libft...			$(WHITE)"
 	@make -C libft
-	@echo "$(WHITE)Working on list...			$(WHITE)"
-	@make -C list
 	@echo "$(WHITE)Working on mlx...			$(WHITE)"
 	@make -C mlx
 	@echo "$(ORANGE)Creating on miniRT...			$(WHITE)"
-	@$(COMPILE) -Lmlx -lmlx -Lgnl -lgnl -Llist -llist -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME) $(OBJECTS)
+	@$(COMPILE) -Lmlx -lmlx -Lgnl -lgnl -Llibft -lft -framework OpenGL \
+				-framework AppKit -o $(NAME) $(OBJECTS)
 	@echo "$(GREEN)Succesfuly creating exe 'cube3d'"
 	@mv mlx/libmlx.dylib .
 
@@ -92,8 +91,6 @@ clean:
 	@make clean -C gnl
 	@echo "$(WHITE)Working on libft..."
 	@make clean -C libft
-	@echo "$(WHITE)Working on list..."
-	@make clean -C list
 	@echo "$(WHITE)Working on mlx..."
 	@make clean -C mlx
 	@echo "$(WHITE)Working on miniRT..."
@@ -105,12 +102,11 @@ fclean: clean
 	@make fclean -C gnl
 	@echo "$(WHITE)Working on libft...	"
 	@make fclean -C libft
-	@echo "$(WHITE)Working on list...	"
-	@make fclean -C list
 	@echo "$(WHITE)Working on miniRT...	"
 	@echo "$(RED)DELETING EXECUTABLE"
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f libmlx.dylib
+	@/bin/rm -f ./screenshot/image.bmp
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/06 10:15:43 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/16 16:09:15 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/17 13:32:42 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_2d_int	position(t_data *data, int x, int y)
 	return (pos);
 }
 
-void	check_spawning_point(t_data *data)
+void		check_spawning_point(t_data *data)
 {
 	int i;
 	int validation;

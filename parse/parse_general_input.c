@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:28:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/16 15:26:53 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/17 13:33:16 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		parse_general_input(char *line, t_data *data)
 	else
 	{
 		free(line);
-		parse_error(24, data,  input_data, 0);
+		parse_error(24, data, input_data, 0);
 	}
 }
 

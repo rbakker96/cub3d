@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/19 10:57:45 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/16 11:49:34 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/17 11:11:10 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	init_mlx(t_data *data)
 
 void	open_window(t_data *data)
 {
-	data->mlx_win = mlx_new_window(data->mlx, data->res.y, data->res.x,
+	data->mlx_win = mlx_new_window(data->mlx, data->res.x, data->res.y,
 																	"Cub3d");
 	if (!data->mlx_win)
 		parse_error(32, data, 0, 0);
@@ -34,11 +34,11 @@ void	open_window(t_data *data)
 
 void	create_new_image(t_data *data)
 {
-	data->image_one.img = mlx_new_image(data->mlx, data->res.y, data->res.x);
+	data->image_one.img = mlx_new_image(data->mlx, data->res.x, data->res.y);
 	data->image_one.usage = off_screen;
 	if (!data->image_one.img)
 		parse_error(33, data, 0, 0);
-	data->image_two.img = mlx_new_image(data->mlx, data->res.y, data->res.x);
+	data->image_two.img = mlx_new_image(data->mlx, data->res.x, data->res.y);
 	data->image_two.usage = off_screen;
 	if (!data->image_two.img)
 		parse_error(33, data, 0, 0);

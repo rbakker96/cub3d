@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rbakker <rbakker@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/02/06 11:51:36 by rbakker           #+#    #+#              #
-#    Updated: 2020/02/06 13:14:44 by rbakker          ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: rbakker <rbakker@student.42.fr>              +#+                      #
+#                                                    +#+                       #
+#    Created: 2020/02/06 11:51:36 by rbakker       #+#    #+#                  #
+#    Updated: 2020/04/17 12:03:12 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ $(NAME): $(OBJECTS_S)
 clean:
 	@echo "$(RED)DELETING OBJECTFILES"
 	@/bin/rm -f $(OBJECTS_S)
-	@/bin/rm -f $(OBJECTS_B)
 
 fclean: clean
 	@echo "$(RED)DELETING EXECUTABLE"

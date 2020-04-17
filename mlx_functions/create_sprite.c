@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/26 09:38:20 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/16 11:48:55 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/17 12:09:05 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		create_sprite_image(t_data *data)
 {
-	data->sprite.mlx.img = mlx_png_file_to_image(data->mlx,data->sprite.path,
+	data->sprite.mlx.img = mlx_png_file_to_image(data->mlx, data->sprite.path,
 						&data->sprite.res.y, &data->sprite.res.x);
 	if (!data->sprite.mlx.img)
 		parse_error(33, data, 0, 0);
