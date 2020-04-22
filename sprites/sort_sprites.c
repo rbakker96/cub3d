@@ -6,11 +6,11 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/29 15:33:02 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/08 11:18:07 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 13:32:26 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void		sort_sprites(t_data *data)
 {

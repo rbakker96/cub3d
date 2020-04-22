@@ -6,11 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:38:04 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/16 11:56:48 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/22 11:55:34 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void		delta_distance(t_data *data)
 {

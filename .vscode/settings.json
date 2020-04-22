@@ -21,6 +21,7 @@
 		"unordered_map": "cpp",
 		"utility": "cpp",
 		"vector": "cpp",
-		"libft.h": "c"
+		"libft.h": "c",
+		"cub3d.h": "c"
 	}
 }

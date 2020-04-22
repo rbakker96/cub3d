@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/17 14:01:54 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 15:01:51 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,7 @@ void		create_sprite_image(t_data *data);
 /*
 ** close_screen.c
 */
-int			button_close_screen(t_data *data);
-int			key_close_screen(t_data *data);
+int			close_screen(t_data *data);
 
 /*
 **--------------------------------BMP IMAGE-------------------------------------
@@ -166,6 +165,7 @@ int			map_line(char *line);
 */
 int			check_file_name(char *file_name);
 int			arguments_count(char **input_data);
+int			digit(char *str);
 t_color		color_value(char *input_str, t_data *data, char **input_array);
 void		validate_general_input(t_data *data);
 

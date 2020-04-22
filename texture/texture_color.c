@@ -6,11 +6,11 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/23 14:16:53 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/14 12:08:44 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 13:32:26 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void		place_texture_color(t_data *data, int x, int y)
 {

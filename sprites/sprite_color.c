@@ -6,11 +6,11 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/01 11:51:16 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/08 13:45:19 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 13:32:26 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void	sprite_color(t_data *data, int y)
 {

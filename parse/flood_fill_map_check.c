@@ -6,11 +6,11 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/06 10:15:43 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/17 13:32:42 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 13:55:20 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void		floodfill_algorithm(t_data *data)
 {
@@ -20,6 +20,8 @@ void		floodfill_algorithm(t_data *data)
 	check_spawning_point(data);
 	pos = position(data, 0, 0);
 	floodfill_map = ft_split(data->map.map_input, '\n');
+	if (!floodfill_map)
+		parse_error(35, data, 0, 0);
 	check_top_and_bottom_line(floodfill_map, data, 0, 0);
 	flood_map(floodfill_map, data, pos.x, pos.y);
 	free_array(floodfill_map);

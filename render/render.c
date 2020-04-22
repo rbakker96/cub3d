@@ -6,11 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/03 15:23:10 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/17 11:32:34 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/22 12:06:17 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void		pre_calculations(t_data *data)
 {

@@ -6,11 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:37:17 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/16 11:54:26 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 14:29:31 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void	parse_north(t_data *data, char **input_data)
 {
@@ -21,6 +21,8 @@ void	parse_north(t_data *data, char **input_data)
 	else
 		data->north.validation = present;
 	data->north.path = ft_strdup(input_data[1]);
+	if (!data->north.path)
+		parse_error(35, data, input_data, 0);
 	free_array(input_data);
 }
 
@@ -33,6 +35,8 @@ void	parse_south(t_data *data, char **input_data)
 	else
 		data->south.validation = present;
 	data->south.path = ft_strdup(input_data[1]);
+	if (!data->south.path)
+		parse_error(35, data, input_data, 0);
 	free_array(input_data);
 }
 
@@ -45,6 +49,8 @@ void	parse_east(t_data *data, char **input_data)
 	else
 		data->east.validation = present;
 	data->east.path = ft_strdup(input_data[1]);
+	if (!data->east.path)
+		parse_error(35, data, input_data, 0);
 	free_array(input_data);
 }
 
@@ -57,6 +63,8 @@ void	parse_west(t_data *data, char **input_data)
 	else
 		data->west.validation = present;
 	data->west.path = ft_strdup(input_data[1]);
+	if (!data->west.path)
+		parse_error(35, data, input_data, 0);
 	free_array(input_data);
 }
 
@@ -69,5 +77,7 @@ void	parse_sprite(t_data *data, char **input_data)
 	else
 		data->sprite.validation = present;
 	data->sprite.path = ft_strdup(input_data[1]);
+	if (!data->sprite.path)
+		parse_error(35, data, input_data, 0);
 	free_array(input_data);
 }

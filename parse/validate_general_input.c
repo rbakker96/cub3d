@@ -6,11 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:33:17 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/16 11:56:25 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/22 11:09:34 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 int		check_file_name(char *file_name)
 {
@@ -37,14 +37,32 @@ int		arguments_count(char **input_data)
 	return (i);
 }
 
+int		digit(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (!ft_isdigit(str[i]) && str[i] != '-' && str[i] != '+')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 t_color	color_value(char *input_str, t_data *data, char **input_array)
 {
 	t_color color;
 	char	**colors;
 
 	colors = ft_split(input_str, ',');
+	if (!colors)
+		parse_error(35, data, input_array, 0);
 	if (arguments_count(colors) != 3)
 		parse_error(10, data, input_array, colors);
+	if (!digit(colors[0]) || !digit(colors[1]) || !digit(colors[2]))
+		parse_error(42, data, input_array, colors);
 	color.r = ft_atoi(colors[0]);
 	if (color.r < 0 || color.r > 255)
 		parse_error(11, data, input_array, colors);

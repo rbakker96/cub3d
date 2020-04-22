@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 15:20:45 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/17 11:59:43 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 14:15:57 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-char				**ft_split(char const *s, char c);
+char				**ft_split(char const *str, char c);
 char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 

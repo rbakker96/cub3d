@@ -6,11 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/10 13:37:38 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/15 10:06:26 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 13:51:56 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 int		key_press(int keycode, t_data *data)
 {
@@ -27,7 +27,7 @@ int		key_press(int keycode, t_data *data)
 	if (keycode == RIGHT_KEY)
 		data->raycast.move.turn_right = 1;
 	if (keycode == ESC_KEY)
-		key_close_screen(data);
+		close_screen(data);
 	return (0);
 }
 

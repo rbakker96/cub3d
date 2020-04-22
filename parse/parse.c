@@ -6,11 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:56:57 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/16 14:57:30 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 13:53:04 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void		parse_file(int argv, char **argc, t_data *data)
 {
@@ -29,6 +29,8 @@ void		parse_file(int argv, char **argc, t_data *data)
 	if (check_file_name(argc[1]) == error)
 		parse_error(2, data, 0, 0);
 	fd = open(argc[1], O_RDONLY);
+	if (fd == -1)
+		parse_error(38, data, 0, 0);
 	general_input(data, fd);
 	map_input(data, fd);
 }

@@ -6,17 +6,19 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:28:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/17 13:33:16 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 15:22:44 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void		parse_general_input(char *line, t_data *data)
 {
 	char	**input_data;
 
 	input_data = ft_split(line, ' ');
+	if (!input_data)
+		parse_error(35, data, 0, 0);
 	if (!ft_strncmp(input_data[0], "R", 10))
 		return (parse_resolution(data, input_data));
 	if (!ft_strncmp(input_data[0], "NO", 10))
@@ -34,10 +36,7 @@ void		parse_general_input(char *line, t_data *data)
 	if (!ft_strncmp(input_data[0], "C", 10))
 		return (parse_ceilling(data, input_data));
 	else
-	{
-		free(line);
-		parse_error(24, data, input_data, 0);
-	}
+		parse_error(24, data, input_data, &line);
 }
 
 void		parse_resolution(t_data *data, char **input_data)
@@ -48,6 +47,8 @@ void		parse_resolution(t_data *data, char **input_data)
 		parse_error(5, data, input_data, 0);
 	else
 		data->res.validation = present;
+	if (!digit(input_data[1]) || !digit(input_data[2]))
+		parse_error(43, data, input_data, 0);
 	data->res.x = ft_atoi(input_data[1]);
 	data->res.y = ft_atoi(input_data[2]);
 	free_array(input_data);
@@ -96,7 +97,11 @@ void		general_input(t_data *data, int fd)
 		free(line);
 	}
 	if (map_line(line))
+	{
 		data->map.map_input = ft_strdup(line);
+		if (!data->map.map_input)
+			parse_error(35, data, 0, 0);
+	}
 	free(line);
 	validate_general_input(data);
 }

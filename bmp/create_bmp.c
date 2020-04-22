@@ -6,11 +6,11 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 12:22:02 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/17 18:59:08 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 13:52:22 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 int			get_padding(t_data *data)
 {
@@ -105,7 +105,7 @@ void		create_bmp(t_data *data)
 		close(fd);
 		parse_error(39, data, 0, 0);
 	}
-	data->bmp_needed = 0;
 	fail = close(fd);
 	(fail < 0) ? parse_error(40, data, 0, 0) : fail;
+	close_screen(data);
 }

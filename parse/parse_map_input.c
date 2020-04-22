@@ -6,11 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:22:51 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/16 15:31:22 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/22 11:36:13 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 char		*join_map_lines(char *map, char *line, t_data *data, int i)
 {
@@ -67,5 +67,7 @@ void		map_input(t_data *data, int fd)
 	}
 	free(line);
 	data->map.map = ft_split(data->map.map_input, '\n');
+	if (!data->map.map)
+		parse_error(35, data, 0, 0);
 	floodfill_algorithm(data);
 }

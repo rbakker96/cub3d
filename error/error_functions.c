@@ -6,11 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:17:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/16 15:26:01 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/21 14:57:20 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 char	*table_1(int error_code)
 {
@@ -112,9 +112,9 @@ char	*table_4(int error_code)
 	if (error_code == 41)
 		return ("Error\nUnkonwn extension given, use --save instead\n");
 	if (error_code == 42)
-		return ("Error\n\n");
+		return ("Error\nOnly digits are allowed for colors\n");
 	if (error_code == 43)
-		return ("Error\n\n");
+		return ("Error\nOnly digits are allowed for resolution\n");
 	if (error_code == 44)
 		return ("Error\n\n");
 	if (error_code == 45)
@@ -142,5 +142,5 @@ void	parse_error(int code, t_data *data, char **array_1, char **array_2)
 	if (array_2)
 		free_array(array_2);
 	free_struct(data);
-	exit(0);
+	exit(1);
 }

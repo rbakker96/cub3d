@@ -6,11 +6,11 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/27 11:28:33 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/17 13:35:09 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/22 11:56:54 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/roybakker/Documents/Codam/cub3d/cub3d.h"
+#include "../cub3d.h"
 
 void		sprite_position_and_distance(t_data *data)
 {

@@ -6,11 +6,11 @@
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/02/05 14:55:09 by rbakker       #+#    #+#                  #
-#    Updated: 2020/04/17 19:02:54 by roybakker     ########   odam.nl          #
+#    Updated: 2020/04/22 13:51:41 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	cub3d
+NAME	=	cub3D
 
 SOURCES	= 	main.c \
 			error/error_functions.c \
@@ -76,10 +76,10 @@ $(NAME): $(OBJECTS)
 	@make -C libft
 	@echo "$(WHITE)Working on mlx...			$(WHITE)"
 	@make -C mlx
-	@echo "$(ORANGE)Creating on miniRT...			$(WHITE)"
-	@$(COMPILE) -Lmlx -lmlx -Lgnl -lgnl -Llibft -lft -framework OpenGL \
+	@echo "$(ORANGE)Creating on cub3D...			$(WHITE)"
+	@$(COMPILE) -ggdb -Lmlx -lmlx -Lgnl -lgnl -Llibft -lft -framework OpenGL \
 				-framework AppKit -o $(NAME) $(OBJECTS)
-	@echo "$(GREEN)Succesfuly creating exe 'cube3d'"
+	@echo "$(GREEN)Succesfuly creating exe 'cube3D'"
 	@mv mlx/libmlx.dylib .
 
 %.o: %.c
@@ -93,7 +93,7 @@ clean:
 	@make clean -C libft
 	@echo "$(WHITE)Working on mlx..."
 	@make clean -C mlx
-	@echo "$(WHITE)Working on miniRT..."
+	@echo "$(WHITE)Working on cub3D..."
 	@echo "$(RED)DELETING OBJECTFILES"
 	@/bin/rm -f $(OBJECTS)
 
@@ -102,7 +102,7 @@ fclean: clean
 	@make fclean -C gnl
 	@echo "$(WHITE)Working on libft...	"
 	@make fclean -C libft
-	@echo "$(WHITE)Working on miniRT...	"
+	@echo "$(WHITE)Working on cub3D...	"
 	@echo "$(RED)DELETING EXECUTABLE"
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f libmlx.dylib
