@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/21 15:01:51 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/23 11:32:54 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include "gnl/get_next_line.h"
 # include "structs.h"
 # include "defenitions.h"
-
-# include <stdio.h>  /*remove*/
 
 /*
 **----------------------------------ERROR---------------------------------------
@@ -98,7 +96,7 @@ int			close_screen(t_data *data);
 int			get_padding(t_data *data);
 int			file_header(t_data *data, int fd);
 int			image_header(t_data *data, int fd);
-int			pixel_array(t_data *data, int x, int y,int fd);
+int			pixel_array(t_data *data, int x, int y, int fd);
 void		create_bmp(t_data *data);
 
 /*
@@ -139,7 +137,7 @@ void		parse_sprite(t_data *data, char **input_data);
 /*
 ** parse_map_input.c
 */
-char		*join_map_lines(char *map, char *line, t_data *data, int i);
+char		*join_map_lines(char *map, char *line, int i);
 void		update_map(char *line, t_data *data);
 void		map_input(t_data *data, int fd);
 

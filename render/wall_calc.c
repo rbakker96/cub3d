@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 14:42:10 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/22 12:01:13 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/22 19:47:59 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ void		identify_wall(t_data *data)
 	{
 		if (data->raycast.side_dis.x < data->raycast.side_dis.y)
 		{
-			data->raycast.side_dis.x = data->raycast.side_dis.x +
-													data->raycast.delta_dis.x;
+			data->raycast.side_dis.x += data->raycast.delta_dis.x;
 			data->raycast.map.x = data->raycast.map.x + data->raycast.step.x;
 			data->raycast.side = 0;
 		}
 		else
 		{
-			data->raycast.side_dis.y = data->raycast.side_dis.y +
-													data->raycast.delta_dis.y;
+			data->raycast.side_dis.y += data->raycast.delta_dis.y;
 			data->raycast.map.y = data->raycast.map.y + data->raycast.step.y;
 			data->raycast.side = 1;
 		}

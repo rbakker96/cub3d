@@ -6,13 +6,13 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:22:51 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/22 11:36:13 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/23 11:34:16 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-char		*join_map_lines(char *map, char *line, t_data *data, int i)
+char		*join_map_lines(char *map, char *line, int i)
 {
 	char	*complete_map;
 	int		x;
@@ -21,7 +21,7 @@ char		*join_map_lines(char *map, char *line, t_data *data, int i)
 	i = ft_strlen(line);
 	complete_map = malloc(sizeof(char) * (i + x + 2));
 	if (!complete_map)
-		parse_error(35, data, &line, 0);
+		return (0);
 	x = 0;
 	i = 0;
 	while (map[i] != '\0')
@@ -44,7 +44,12 @@ void		update_map(char *line, t_data *data)
 {
 	char	*updated_map;
 
-	updated_map = join_map_lines(data->map.map_input, line, data, 0);
+	updated_map = join_map_lines(data->map.map_input, line, 0);
+	if (!updated_map)
+	{
+		free(line);
+		parse_error(35, data, 0, 0);
+	}
 	free(data->map.map_input);
 	data->map.map_input = updated_map;
 }

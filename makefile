@@ -6,7 +6,7 @@
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/02/05 14:55:09 by rbakker       #+#    #+#                  #
-#    Updated: 2020/04/22 13:51:41 by roybakker     ########   odam.nl          #
+#    Updated: 2020/04/23 09:09:43 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ $(NAME): $(OBJECTS)
 	@echo "$(WHITE)Working on mlx...			$(WHITE)"
 	@make -C mlx
 	@echo "$(ORANGE)Creating on cub3D...			$(WHITE)"
-	@$(COMPILE) -ggdb -Lmlx -lmlx -Lgnl -lgnl -Llibft -lft -framework OpenGL \
+	@$(COMPILE) -g -Lmlx -lmlx -Lgnl -lgnl -Llibft -lft -framework OpenGL \
 				-framework AppKit -o $(NAME) $(OBJECTS)
 	@echo "$(GREEN)Succesfuly creating exe 'cube3D'"
 	@mv mlx/libmlx.dylib .
