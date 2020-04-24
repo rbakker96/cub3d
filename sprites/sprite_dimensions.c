@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/30 14:00:44 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/21 13:32:26 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/24 14:55:12 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		sprite_height(t_data *data)
 	if (data->sprites.draw_start_y < 0)
 		data->sprites.draw_start_y = 0;
 	data->sprites.draw_end_y = data->sprites.height / 2 + data->res.y / 2;
-	if (data->sprites.draw_end_y > data->res.y)
+	if (data->sprites.draw_end_y >= data->res.y)
 		data->sprites.draw_end_y = data->res.y - 1;
 }
 

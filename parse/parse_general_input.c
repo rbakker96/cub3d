@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:28:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/21 15:22:44 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/24 15:48:36 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void		parse_resolution(t_data *data, char **input_data)
 		data->res.validation = present;
 	if (!digit(input_data[1]) || !digit(input_data[2]))
 		parse_error(43, data, input_data, 0);
-	data->res.x = ft_atoi(input_data[1]);
-	data->res.y = ft_atoi(input_data[2]);
+	data->res.x = get_number(input_data[1]);
+	data->res.y = get_number(input_data[2]);
+	check_resolution(data, input_data[1], input_data[2]);
 	free_array(input_data);
-	check_resolution(data);
 }
 
 void		parse_floor(t_data *data, char **input_data)

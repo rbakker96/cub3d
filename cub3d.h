@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/23 11:32:54 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/24 15:49:25 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "gnl/get_next_line.h"
 # include "structs.h"
 # include "defenitions.h"
+
+#include "stdio.h" /* remove */
 
 /*
 **----------------------------------ERROR---------------------------------------
@@ -170,7 +172,8 @@ void		validate_general_input(t_data *data);
 /*
 ** validate_resolution.c
 */
-void		check_resolution(t_data *data);
+int			get_number(const char *str);
+void		check_resolution(t_data *data, char *nb_one, char *nb_two);
 
 /*
 **----------------------------------RENDER--------------------------------------
