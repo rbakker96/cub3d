@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/23 14:16:53 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/21 13:32:26 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/29 18:02:45 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void		place_texture_color(t_data *data, int x, int y)
 {
 	if (data->raycast.side == 1 && data->raycast.ray_dir.y > 0)
-		east_texture(data, x, y);
-	else if (data->raycast.side == 1 && data->raycast.ray_dir.y < 0)
-		west_texture(data, x, y);
-	else if (data->raycast.side == 0 && data->raycast.ray_dir.x > 0)
 		south_texture(data, x, y);
-	else
+	else if (data->raycast.side == 1 && data->raycast.ray_dir.y < 0)
 		north_texture(data, x, y);
+	else if (data->raycast.side == 0 && data->raycast.ray_dir.x > 0)
+		east_texture(data, x, y);
+	else
+		west_texture(data, x, y);
 }
 
 void		north_texture(t_data *data, int x, int y)

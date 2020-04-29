@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 10:44:33 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/24 15:49:25 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/29 10:43:38 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include "gnl/get_next_line.h"
 # include "structs.h"
 # include "defenitions.h"
-
-#include "stdio.h" /* remove */
 
 /*
 **----------------------------------ERROR---------------------------------------

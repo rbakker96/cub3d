@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:17:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/21 14:57:20 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/29 12:55:18 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	*table_3(int error_code)
 	if (error_code == 35)
 		return ("Error\nMalloc failed\n");
 	if (error_code == 36)
-		return ("Error\nNegative resolution value\n");
+		return ("Error\nWrong resolution value\n");
 	return (0);
 }
 

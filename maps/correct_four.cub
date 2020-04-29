@@ -1,4 +1,4 @@
-R 848 9352156313554153136515313513513
+R 848 20000
 
 NO ./textures/bluestone.png
 
@@ -10,6 +10,7 @@ EA ./textures/wall_2.png
 
 S ./textures/pillar.png
 
+F 184,233,39
 F 184,233,39
 C 51,198,227
 
