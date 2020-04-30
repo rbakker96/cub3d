@@ -6,11 +6,12 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:28:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/24 15:48:36 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/30 10:14:49 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+#include "stdio.h"
 
 void		parse_general_input(char *line, t_data *data)
 {
@@ -61,8 +62,6 @@ void		parse_floor(t_data *data, char **input_data)
 		parse_error(6, data, input_data, 0);
 	if (data->color.floor.validation == present)
 		parse_error(7, data, input_data, 0);
-	else
-		data->color.floor.validation = present;
 	data->color.floor = color_value(input_data[1], data, input_data);
 	free_array(input_data);
 }
@@ -73,8 +72,6 @@ void		parse_ceilling(t_data *data, char **input_data)
 		parse_error(8, data, input_data, 0);
 	if (data->color.ceilling.validation == present)
 		parse_error(9, data, input_data, 0);
-	else
-		data->color.ceilling.validation = present;
 	data->color.ceilling = color_value(input_data[1], data, input_data);
 	free_array(input_data);
 }

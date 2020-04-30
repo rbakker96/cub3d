@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/06 10:15:43 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/04/23 11:37:10 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/30 10:00:10 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		flood_map(char **map, t_data *data, int x, int y)
 		flood_map(map, data, x - 1, y - 1);
 	}
 	else
-		parse_error(25, data, 0, 0);
+		parse_error(25, data, map, 0);
 }
 
 t_2d_int	position(t_data *data, int x, int y)

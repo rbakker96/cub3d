@@ -6,7 +6,7 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:33:17 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/24 15:48:36 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/30 10:13:47 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ t_color	color_value(char *input_str, t_data *data, char **input_array)
 	color.b = get_number(colors[2]);
 	if (color.b < 0 || color.b > 255)
 		parse_error(13, data, input_array, colors);
+	color.validation = present;
 	free_array(colors);
 	return (color);
 }
