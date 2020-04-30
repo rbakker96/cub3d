@@ -6,12 +6,11 @@
 /*   By: rbakker <rbakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 11:28:13 by rbakker       #+#    #+#                 */
-/*   Updated: 2020/04/30 10:14:49 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/04/30 10:55:00 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-#include "stdio.h"
 
 void		parse_general_input(char *line, t_data *data)
 {
